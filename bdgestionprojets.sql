@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 25 juin 2018 à 11:54
+-- Généré le :  lun. 25 juin 2018 à 16:20
 -- Version du serveur :  10.1.31-MariaDB
 -- Version de PHP :  7.2.3
 
@@ -25,46 +25,74 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `equipe`
+-- Structure de la table `indice`
 --
 
-CREATE TABLE `equipe` (
+CREATE TABLE `indice` (
   `id` int(11) NOT NULL,
-  `libelle` varchar(100) NOT NULL,
-  `idResponsable` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `equipe`
---
-
-INSERT INTO `equipe` (`id`, `libelle`, `idResponsable`) VALUES
-(33, 'Equipe Graphisme 1', NULL),
-(34, 'Equipe Back End', 'test@test.test'),
-(35, 'Equipe Test Unitaire', NULL),
-(36, 'Equipe Front End', NULL),
-(37, 'Equipe Mobile', NULL),
-(38, 'Equipe QA', NULL),
-(39, 'testequipe', 'test@test.test');
+  `libelle` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `role`
+-- Structure de la table `maitrise`
 --
 
-CREATE TABLE `role` (
+CREATE TABLE `maitrise` (
+  `idUtilisateur` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `idTechnologie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `maitrise`
+--
+
+INSERT INTO `maitrise` (`idUtilisateur`, `idTechnologie`) VALUES
+('admin@simpleduc.org', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `question`
+--
+
+CREATE TABLE `question` (
   `id` int(11) NOT NULL,
-  `libelle` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `libelle` varchar(255) NOT NULL,
+  `idTechnologie` int(11) NOT NULL,
+  `idBonneReponse` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Déchargement des données de la table `role`
+-- Structure de la table `reponse`
 --
 
-INSERT INTO `role` (`id`, `libelle`) VALUES
-(1, 'Administrateur'),
-(2, 'Utilisateur');
+CREATE TABLE `reponse` (
+  `id` int(11) NOT NULL,
+  `libelle` int(11) NOT NULL,
+  `idQuestion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `technologie`
+--
+
+CREATE TABLE `technologie` (
+  `id` int(11) NOT NULL,
+  `libelle` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `technologie`
+--
+
+INSERT INTO `technologie` (`id`, `libelle`) VALUES
+(1, 'html');
 
 -- --------------------------------------------------------
 
@@ -76,74 +104,111 @@ CREATE TABLE `utilisateur` (
   `email` varchar(100) NOT NULL,
   `mdp` varchar(256) NOT NULL,
   `nom` varchar(100) NOT NULL,
-  `prenom` varchar(100) NOT NULL,
-  `idRole` int(11) NOT NULL,
-  `idEquipe` int(11) DEFAULT NULL
+  `prenom` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`email`, `mdp`, `nom`, `prenom`, `idRole`, `idEquipe`) VALUES
-('admin@simpleduc.org', '$2y$10$q8.AZxrDgmrHediCOUPvpOyDJJuOP70041CHa8NYq9QlhTsYiYXjG', 'admin', 'admin', 1, 39),
-('test@test.test', '123456', 'testnomPouet', 'testprenomDingoui', 2, 36);
+INSERT INTO `utilisateur` (`email`, `mdp`, `nom`, `prenom`) VALUES
+('admin@simpleduc.org', '$2y$10$q8.AZxrDgmrHediCOUPvpOyDJJuOP70041CHa8NYq9QlhTsYiYXjG', 'admin', 'admin');
 
 --
 -- Index pour les tables déchargées
 --
 
 --
--- Index pour la table `equipe`
+-- Index pour la table `indice`
 --
-ALTER TABLE `equipe`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idResponsable` (`idResponsable`);
+ALTER TABLE `indice`
+  ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `role`
+-- Index pour la table `maitrise`
 --
-ALTER TABLE `role`
+ALTER TABLE `maitrise`
+  ADD PRIMARY KEY (`idUtilisateur`,`idTechnologie`) USING BTREE,
+  ADD KEY `maitrise2` (`idTechnologie`);
+
+--
+-- Index pour la table `question`
+--
+ALTER TABLE `question`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idTechnologie` (`idTechnologie`),
+  ADD KEY `idBonneReponse` (`idBonneReponse`);
+
+--
+-- Index pour la table `reponse`
+--
+ALTER TABLE `reponse`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idQuestion` (`idQuestion`);
+
+--
+-- Index pour la table `technologie`
+--
+ALTER TABLE `technologie`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`email`),
-  ADD KEY `idRole` (`idRole`);
+  ADD PRIMARY KEY (`email`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT pour la table `equipe`
+-- AUTO_INCREMENT pour la table `indice`
 --
-ALTER TABLE `equipe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+ALTER TABLE `indice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `role`
+-- AUTO_INCREMENT pour la table `question`
 --
-ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `question`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `reponse`
+--
+ALTER TABLE `reponse`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `technologie`
+--
+ALTER TABLE `technologie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `equipe`
+-- Contraintes pour la table `maitrise`
 --
-ALTER TABLE `equipe`
-  ADD CONSTRAINT `equipe_ibfk_1` FOREIGN KEY (`idResponsable`) REFERENCES `utilisateur` (`email`);
+ALTER TABLE `maitrise`
+  ADD CONSTRAINT `maitrise2` FOREIGN KEY (`idTechnologie`) REFERENCES `technologie` (`id`),
+  ADD CONSTRAINT `maitriser` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`email`);
 
 --
--- Contraintes pour la table `utilisateur`
+-- Contraintes pour la table `question`
 --
-ALTER TABLE `utilisateur`
-  ADD CONSTRAINT `utilisateur_ibfk_1` FOREIGN KEY (`idRole`) REFERENCES `role` (`id`);
+ALTER TABLE `question`
+  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`idTechnologie`) REFERENCES `technologie` (`id`),
+  ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`idBonneReponse`) REFERENCES `reponse` (`id`);
+
+--
+-- Contraintes pour la table `reponse`
+--
+ALTER TABLE `reponse`
+  ADD CONSTRAINT `reponse_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
