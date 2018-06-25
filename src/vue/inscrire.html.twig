@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{ parent() }} Accueil - S'inscrire {% endblock %}
+       
+{% block contenu %} 
+
+{% if form.valide is defined %} 
+    {% if form.valide == true %}
+       <h1 class="h3 mb-3 font-weight-normal">Inscription réussie</h1>
+       <h1 class="h3 mb-3 font-weight-normal">Voici votre identifiant : {{form.email}}</h1>
+       {% if form.role == 1 %}
+           <h1 class="h3 mb-3 font-weight-normal">Vous êtes administrateur du site</h1>
+       {% else %}
+           <h1 class="h3 mb-3 font-weight-normal">Vous êtes un utilisateur du site </h1>
+       {% endif %}    
+       <h1 class="h3 mb-3 font-weight-normal"><a href="index.php">Connectez-vous</a></h1>
+    {% else %} 
+       <h1 class="h3 mb-3 font-weight-normal">Echec de l'inscription</h1> 
+   <h1 class="alert alert-danger" role="alert">{{ form.message }}</h1> 
+       <h1 class="h3 mb-3 font-weight-normal"><a href="index.php?page=inscrire">Retourner sur la page d'inscription</a></h1>
+    {% endif %}     
+       
+{% else %}  
+ <form class="form-signin" action="index.php?page=inscrire" method="post" enctype="application/x-www-form-urlencoded">
+      <h1 class="h3 mb-3 font-weight-normal">Inscrivez-vous au tableau de bord</h1>
+      <label for="inputEmail" class="sr-only">Email:</label>
+      <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
+      <label for="inputPassword" class="sr-only">Mot de passe:</label>
+      <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
+      <label for="inputPassword2" class="sr-only">Mot de passe:</label>
+      <input type="password" id="inputPassword2" name="inputPassword2" class="form-control" placeholder="Confirmation mot de passe" required>
+      {# Nom et prénom #}
+      <label for="nom" class="sr-only">Nom:</label>
+      <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom" required>
+      <label for="prenom" class="sr-only">Prénom:</label>
+      <input type="prenom" id="prenom" name="prenom" class="form-control" placeholder="Prénom" required>
+     
+      <button class="btn btn-lg  btn-block" type="submit" name="btInscrire">S'inscrire</button>
+     
+ </form>
+   
+{% endif %}  
+{% endblock %} 

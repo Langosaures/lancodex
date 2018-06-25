@@ -1,0 +1,110 @@
+a{
+    color: #522472;
+}
+
+.blanc{
+  color: #FFF;
+}
+
+.background-violet{
+    background-color: #522472;
+    color: #FFF;
+}
+
+button{
+   background-color: #522472;
+   color: #FFF; 
+}
+
+.violet{
+  color: #522472;
+}
+
+h1 {
+  text-align: center;
+  color: #522472;
+}
+
+.h3 {
+  text-align: center;
+  color: #522472;
+}
+
+.btn-lg{
+   background-color: #522472;    
+   color: #FFF;
+}
+
+/* navbar */
+.navbar-default {
+    background-color: #522472;
+    border-color: #522472;
+}
+/* Title */
+.navbar-default .navbar-brand {
+    color: #FFF;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #522472;
+}
+/* Link */
+.navbar-default .navbar-nav > li > a {
+    color: #FFF;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #333;
+}
+/* Fond sélectionné */
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #FFF;
+    background-color: #522472;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #FFF;
+    background-color: #522472;
+}
+/* Caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+    border-bottom-color: #333;
+}
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #555;
+    border-bottom-color: #555;
+}
+/* Mobile version */
+.navbar-default .navbar-toggle {
+    border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #522472;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #522472;
+}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #777;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+          color: #333;
+    }
+}
+.dropdown-item{color: #FFF;}
+
+
