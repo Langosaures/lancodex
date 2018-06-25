@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 25 juin 2018 à 16:20
+-- Généré le :  lun. 25 juin 2018 à 16:28
 -- Version du serveur :  10.1.31-MariaDB
 -- Version de PHP :  7.2.3
 
@@ -84,15 +84,16 @@ CREATE TABLE `reponse` (
 
 CREATE TABLE `technologie` (
   `id` int(11) NOT NULL,
-  `libelle` varchar(255) NOT NULL
+  `libelle` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `technologie`
 --
 
-INSERT INTO `technologie` (`id`, `libelle`) VALUES
-(1, 'html');
+INSERT INTO `technologie` (`id`, `libelle`, `logo`) VALUES
+(1, 'html', '');
 
 -- --------------------------------------------------------
 
