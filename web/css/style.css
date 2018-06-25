@@ -110,12 +110,12 @@ blanc : e2ffad
 }
 
 .conteneur-central {
+    box-shadow: 2px 3px 5px 1px black;
     color: #8f8f8f;
     margin: auto;
     width: 40em;
     border: solid 0.1em #444;
     border-radius: 5px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f3f3f+0,303030+100 */
     background: rgb(63, 63, 63);
     /* Old browsers */
     background: -moz-linear-gradient(-45deg, rgba(63, 63, 63, 1) 0%, rgba(48, 48, 48, 1) 100%);
@@ -125,5 +125,4 @@ blanc : e2ffad
     background: linear-gradient(135deg, rgba(63, 63, 63, 1) 0%, rgba(48, 48, 48, 1) 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f3f3f', endColorstr='#303030', GradientType=1);
-    /* IE6-9 fallback on horizontal gradient */
 }
