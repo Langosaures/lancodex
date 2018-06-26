@@ -8,9 +8,9 @@
         <a class="go-back-arrow" href="index.php?page=inscrire" id="inscription-link">S'inscrire <i class="glyphicon glyphicon-circle-arrow-right"></i></a>
     </form>
 </div>{%else%}
-<div class="conteneur-menu">
+
    {% for e in listeTechno %}
-        <img id="{{e.id}}" src="images/{{e.logo}}" alt="{{e.libelle}}" class="dino" style="height: 200px">
-   {% endfor %}
-</div>
+       <div class="gallery"> <img class="elementLanco" id="{{e.id}}" src="images/{{e.logo}}" alt="{{e.libelle}}"></div>
+   {% endfor %}     
+
 {% endif %} {% endblock %}
