@@ -12,5 +12,13 @@ btnSuiv.click(function (event) {
             $('#2').hide();
             $('#3').show();
             break;
+        case 3:
+            $('#3').hide();
+            $('#4').show();
+            $('.elementLanca').fadeIn(300);
+        case 4:
+            $('#4').hide();
+            $('#5').show();
+            $('.imageLanca').removeClass('locked');
     }
 })
