@@ -13,7 +13,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.ico" /> {% block style %} {% endblock %}
 </head>
-
 <body>
     {% block body %}
     <a href="index.php">
@@ -36,7 +35,10 @@
     {%if session.login is defined %}
     <img src="images/dino.png" alt="Un dragon-dino" class="dino" style="height: 200px">
     <div class="speech-bubble">
-        <div class="bulle-dino">On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).
+        <div class="bulle-dino">
+          {% for e in listeIndices %}
+            <p class="dino-message message-{{e.id}}">{{e.libelle | convert_encoding('UTF-8', 'ISO-8859-1') }}</p>
+          {% endfor %}
         </div>
     </div>
     <div class="footer">
@@ -50,6 +52,25 @@
 
     </script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        // on récupère la taille du tableau
+        size = {{ listeIndices|length }};
+
+        // fonction permetta d'afficher un message aléatoirement
+        function randomMessage(size) {
+            // récupération d'un id entre 1 et la taille du tableau
+            id = Math.floor(Math.random() * size) + 1;
+            // affichage du message concernant l'id récupéré
+            $(".dino-message").css("display","none");
+            $(".dino-message.message-"+id).css("display", "block");
+        }
+        // affichage d'un premier message
+        randomMessage(size);
+        // modification du message toutes les 5 secondes
+        setInterval(function() {
+            randomMessage(size);
+        }, 5000);
+    </script>
 </body>
 
 </html>

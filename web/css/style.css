@@ -36,6 +36,10 @@ blanc : e2ffad
     left: 5em;
 }
 
+.dino-message {
+    display: none;
+}
+
 .speech-bubble {
     position: fixed;
     bottom: 7em;
