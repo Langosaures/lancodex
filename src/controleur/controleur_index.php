@@ -15,7 +15,6 @@ function actionAccueil($twig, $db){
           }  
           else{
            $_SESSION['login'] = $inputEmail;     
-           $_SESSION['role'] = $unUtilisateur['idRole'];
            header("Location:index.php");
           } 
         }
@@ -43,7 +42,6 @@ function actionConnexion($twig, $db){
           }  
           else{
            $_SESSION['login'] = $inputEmail;     
-           $_SESSION['role'] = $unUtilisateur['idRole'];
            header("Location:index.php");
           } 
         }
@@ -53,7 +51,7 @@ function actionConnexion($twig, $db){
           
         }
     }
-    echo $twig->render('connexion.html.twig', array('form'=>$form));
+    echo $twig->render('index.html.twig', array('form'=>$form));
 }
 
 function actionDeconnexion($twig){
