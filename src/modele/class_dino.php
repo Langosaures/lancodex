@@ -8,7 +8,7 @@ class Dino{
     public function __construct($db){
         $this->db = $db;  
         // requête permettant de sélectionner aléatoirement nos indices
-        $this->select = $db->prepare("select libelle from indice order by rand() limit 1");
+        $this->select = $db->prepare("select id, libelle from indice");
         }
 
     // fonction permettant récupérer le résultat de la requête ci-dessus
