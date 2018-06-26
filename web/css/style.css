@@ -9,19 +9,75 @@ blanc : e2ffad
     src: url('../fonts/Exo-Thin.ttf')
 }
 
-a .go-back-arrow {
+
+/* Permet de rendre une image entièrement noire */
+
+.locked {
+    filter: brightness(00%);
+    -webkit-filter: brightness(00%);
+    -moz-filter: brightness(00%);
+    -o-filter: brightness(00%);
+    -ms-filter: brightness(00%);
+}
+
+/*
+.locked:hover {
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    -o-filter: brightness(100%);
+    -ms-filter: brightness(100%);
+}
+*/
+
+.dino {
+    position: fixed;
+    bottom: 0;
+    left: 5em;
+}
+
+.speech-bubble {
+    position: fixed;
+    bottom: 7em;
+    left: 20em;
+    background: rgba(68, 68, 68, 0.3);
+    border-radius: .4em;
+    min-height: 4em;
+    padding: 0.5xem;
+    min-width: 20em;
+    max-width: 70%;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 1.875em solid transparent;
+    border-right-color: rgba(68, 68, 68, 0.3);
+    border-left: 0;
+    border-top: 0;
+    margin-top: -0.937em;
+    margin-left: -1.875em;
+}
+
+.bulle-dino {
+    text-align: justify;
+    margin: 0.6em;
+}
+
+#inscription-link {
+    line-height: 50px;
     color: #f2f2f2 !important;
     text-decoration: none !important;
     transition: all ease-in-out 0.5s !important;
 }
 
-a .go-back-arrow:hover {
+#inscription-link:hover {
     color: #18913a !important;
     text-decoration: underline !important;
-}
-
-#inscription-link {
-    line-height: 50px;
 }
 
 .bg-light {
