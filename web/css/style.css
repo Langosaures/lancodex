@@ -9,6 +9,9 @@ blanc : e2ffad
     src: url('../fonts/Exo-Thin.ttf')
 }
 
+h2 {
+    font-family: 'Exo-Thin';
+}
 
 /* Permet de rendre une image entièrement noire */
 
@@ -20,7 +23,7 @@ blanc : e2ffad
     -ms-filter: brightness(00%);
 }
 
-/*
+
 .locked:hover {
     filter: brightness(100%);
     -webkit-filter: brightness(100%);
@@ -28,7 +31,84 @@ blanc : e2ffad
     -o-filter: brightness(100%);
     -ms-filter: brightness(100%);
 }
-*/
+
+
+/* DINO PAGE TUTO CONCEPT */
+
+.newDino {
+    position: fixed;
+    left: 30%;
+    top: 18em;
+}
+
+.dinoBubbleN {
+    position: fixed;
+    left: 40em;
+    width: 30em;
+    max-height: 20em;
+}
+
+.speech-bubbleN {
+    position: fixed;
+    background: rgba(40, 84, 42, 0.8);
+    border-radius: .4em;
+    min-height: 5.85em;
+    padding: 0.5xem;
+    min-width: 20em;
+    max-width: 70%;
+}
+
+.speech-bubbleN:after {
+    content: '';
+    position: absolute;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: rgba(40, 84, 42, 0.8);
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
+
+.speechN {
+    color: #f2f2f2;
+    margin: 1.5em;
+}
+
+#fleche-suiv {
+    color: #444;
+    position: absolute;
+    right: 0;
+    margin: 60px 10px 0px 0px;
+    padding-bottom: 2px;
+    animation: arrowK 1s infinite;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes arrowK {
+    0% {
+        border-right: 1px solid #444;
+    }
+    50% {
+        border-right: 1px solid transparent;
+    }
+    100% {
+        border-right: 1px solid #444;
+    }
+}
+
+#fleche-suiv:hover {
+    color: #f2f2f2;
+    font-size: 16px;
+    animation-play-state: paused;
+    cursor: pointer
+}
+
+/* DINO SUR LA PLUPART DES PAGES */
 
 .dino {
     position: fixed;
@@ -43,7 +123,7 @@ blanc : e2ffad
     background: rgba(68, 68, 68, 0.3);
     border-radius: .4em;
     min-height: 4em;
-    padding: 0.5xem;
+    padding: 0.5em;
     min-width: 20em;
     max-width: 70%;
 }

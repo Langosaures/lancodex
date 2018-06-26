@@ -1,5 +1,15 @@
-{% extends "base.html.twig" %}
-
-{% block title %} {{ parent() }} A propos {% endblock %}
-       
-{% block contenu %} <h1>A propos </h1> {% endblock %} 
+{% extends "base.html.twig" %} {% block title %} {{ parent() }} A propos {% endblock %} {% block dino %}
+<img class="newDino" src="images/newDino.png" alt="Un dinosaure" style="height: 350px">
+<div class="dinoBubbleN">
+    <div class="speech-bubbleN">
+        <div class="speechN" id="1">Hey ! Tu es nouveau ? Je suis content de voir une nouvelle tête ici !</div>
+        <div class="speechN" id="2" style="display: none">Bien, commençons par présenter le concept de l'application ! <br>Tout d'abord, il faut savoir que le lancodex permet d'élargir nos connaissances (ou d'apprendre) les différents langages.</div>
+        <div class="speechN" id="3" style="display: none">Ok ok</div>
+        <div class="speechN" id="4" style="display: none">Ok ok</div>
+        <div class="speechN" id="5" style="display: none">Ok ok</div><br>
+        <span class="glyphicon glyphicon-chevron-right" id="fleche-suiv"></span>
+    </div>
+</div>
+{% endblock%} {%block script%}
+<script src="js/concept.js"></script>
+{%endblock%}
