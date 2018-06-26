@@ -24,14 +24,14 @@ function actionAccueil($twig, $db){
           
         }
     }
-        // Création d'une instancede la clasee dino
+        // Création d'une instance de la clasee dino
         $Dino = new Dino($db);
         // Application de la méthode sélect
         $liste = $Dino->select();
         // Envoie du résultat sur la page twig
 
 
-    echo $twig->render('index.html.twig', array('form'=>$form, 'listeIndices'=>$liste));
+    echo $twig->render('index.html.twig', array( 'form'=>$form, 'listeIndices'=>$liste));
 }
 
 function actionConnexion($twig, $db){
