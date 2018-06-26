@@ -2,15 +2,21 @@
 <img class="newDino" src="images/newDino.png" alt="Un dinosaure" style="height: 350px">
 <div class="dinoBubbleN">
     <div class="speech-bubbleN">
-        <div class="speechN" id="1">Hey ! Tu es nouveau ? Je suis content de voir une nouvelle tête ici !</div>
+        <div class="speechN" id="1">Hey ! Tu es nouveau ? Je suis content de voir une nouvelle tête ici !
+        <br><a class="lien"href="index.php">Je ne suis pas nouveau</a></div>
         <div class="speechN" id="2" style="display: none">Bien, commençons par présenter le concept de l'application ! <br>Tout d'abord, il faut savoir que le lancodex permet d'élargir nos connaissances (ou d'apprendre) les différents langages.</div>
-        <div class="speechN" id="3" style="display: none">Le lancadex, c'est donc une sorte de bibliothèque qui répertorie de nombreux langages... mais il va falloir les débloquer un par un pour pouvoir les consulter !</div>
-        <div class="speechN" id="4" style="display: none">Voici un élément du lancadex :</div>
-        <div class="speechN" id="5" style="display: none">Ok ok</div><br>
-        <span class="glyphicon glyphicon-chevron-right" id="fleche-suiv"></span>
+        <div class="speechN" id="3" style="display: none">Le lancodex, c'est donc une sorte de bibliothèque qui répertorie de nombreux langages... mais il va falloir les débloquer un par un pour pouvoir les consulter !</div>
+        <div class="speechN" id="4" style="display: none">Voici un élément du lancodex :</div>
+        <div class="speechN" id="5" style="display: none">Pour l'instant, il n'est pas visible, il faudra cliquer dessus, puis trouver ses caractéristiques une par une.<br>Une fois tous les éléments trouvés, le langage sera débloqué dans ton lancodex !</div>
+        <div class="speechN" id="6" style="display: none">Le dragon-dino (Géraf de son prènom), lui, te donnera des indices régulièrement entre deux boutades !</div>
+        <div class="speechN" id="7" style="display: none">Il sera donc coloré, et tu pourras consulter tout ce que tu sais sur ce langage quand tu le veux.</div>
+        <div class="speechN" id="8" style="display: none">Tu connais maintenant les bases, mais tu pourras à tout moment revenir me voir si tu n'as pas retenu tous les concepts !</div>
+        <br><span class="glyphicon glyphicon-chevron-right" id="fleche-suiv"></span>
+        <a href="index.php" id="fleche-menu" style="display: none">retour au menu 
+        <span class="glyphicon glyphicon-circle-arrow-right" ></span></a>
     </div>
-    <div class="elementLanca"><img class="imageLanca locked" src="images/css.png" alt="lancades élément"></div>
-
+    <div class="elementLanca"><img class="imageLanca locked" src="images/tuto.png" alt="lancodex élément"></div>
+    <img src="images/dino.png" alt="le dino" class="dinoTuto" style="display: none">
 </div>
 {% endblock%} {%block script%}
 <script src="js/concept.js"></script>

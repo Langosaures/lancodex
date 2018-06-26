@@ -31,10 +31,16 @@ h2 {
 .imageLanca {
     max-height: 7em;
     max-width: 7em;
-    object-fit: contain;
-    margin: 2em;
+    object-fit: fill;
+    margin: 1.6em;
 }
 
+.dinoTuto{
+    height: 20em;
+    position: fixed;
+    left: 60em;
+    top: 25em;
+}
 /* Permet de rendre une image entièrement noire */
 
 .locked {
@@ -46,6 +52,7 @@ h2 {
 }
 
 
+/*
 .locked:hover {
     filter: brightness(100%);
     -webkit-filter: brightness(100%);
@@ -53,6 +60,7 @@ h2 {
     -o-filter: brightness(100%);
     -ms-filter: brightness(100%);
 }
+*/
 
 
 /* DINO PAGE TUTO CONCEPT */
@@ -111,6 +119,28 @@ h2 {
     transition: all 0.5s ease-in-out;
 }
 
+#fleche-menu{
+    line-height: 20px;
+    vertical-align: baseline;
+    color: #f2f2f2;
+    position: absolute;
+    right: 0;
+    margin: -28px 10px 0px 0px;
+    padding-bottom: 2px;
+    font-size: 2rem;
+    animation: arrowM 3s infinite;
+}
+
+@keyframes arrowM {
+    0%{
+        color: #f2f2f2;
+    }50%{
+        color: darkorange;
+    }100%{
+        color: #f2f2f2;
+    }
+}
+
 @keyframes arrowK {
     0% {
         border-right: 1px solid #444;
@@ -130,6 +160,10 @@ h2 {
     cursor: pointer
 }
 
+a.lien{
+    color: #444;
+}
+
 /* DINO SUR LA PLUPART DES PAGES */
 
 .dino {
@@ -145,8 +179,10 @@ h2 {
 .speech-bubble {
     position: fixed;
     bottom: 7em;
+    color: #f2f2f2;
+    font-size: 16px;
     left: 20em;
-    background: rgba(68, 68, 68, 0.3);
+    background: rgba(40, 84, 42, 0.8);
     border-radius: .4em;
     min-height: 4em;
     padding: 0.5em;
@@ -157,12 +193,12 @@ h2 {
 .speech-bubble:after {
     content: '';
     position: absolute;
-    left: 1px;
+    left: 0px;
     top: 50%;
     width: 0;
     height: 0;
     border: 1.875em solid transparent;
-    border-right-color: rgba(68, 68, 68, 0.3);
+    border-right-color: rgba(40, 84, 42, 0.8);
     border-left: 0;
     border-top: 0;
     margin-top: -0.937em;
@@ -393,12 +429,13 @@ h2 {
 
 .conteneur-menu {
     width: 30em;
+    padding-top: 5em;
     margin: auto;
     text-align: center;
 }
 
 .menu-btn {
-    font-size: 28px;
+    font-size: 32px;
     font-family: "Exo-Thin";
     color: #444 !important;
     border: 1px;
