@@ -1,14 +1,18 @@
-{% extends "base.html.twig" %} {% block style %}
-<link href="css/style-signin.css" rel="stylesheet"> {% endblock %} {% block title %} {{ parent() }} Se connecter {% endblock %} {% block contenu %} {%if session.login is not defined %}
+{% extends "base.html.twig" %}{% block title %} {{ parent() }} Se connecter {% endblock %} {% block contenu %} {%if session.login is not defined %}
 <div class="conteneur-central">
     <form class="form-signin" action="index.php?page=connexion" method="post" enctype="application/x-www-form-urlencoded">
-        <h1 class="h3 mb-3 font-weight-normal">Connectez-vous au tableau de bord</h1>
-        <label for="inputEmail" class="sr-only">Email:</label>
+        <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
         <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
-        <label for="inputPassword" class="sr-only">Mot de passe:</label>
         <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
         <button class="btn btn-lg  btn-block" type="submit" name="btConnecter">Se connecter</button>
-        <a href="index.php?page=inscrire">S'inscrire</a>
+        <a class="go-back-arrow" href="index.php?page=inscrire" id="inscription-link">S'inscrire <i class="glyphicon glyphicon-circle-arrow-right"></i></a>
     </form>
+</div>{%else%}
+<div class="conteneur-menu">
+
+    <ul class="main-menu">
+        <li><a class="sim-button button28 menu-btn" id="button-5" href="index.php?page=lancodex">Votre <i>lancodex</i></a></li>
+        <li><a class="sim-button button28 menu-btn" href="index.php?page=apropos">Le concept</a></li>
+    </ul>
 </div>
 {% endif %} {% endblock %}

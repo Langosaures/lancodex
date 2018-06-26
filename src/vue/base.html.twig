@@ -14,14 +14,14 @@
     <link rel="icon" type="image/png" href="favicon.ico" /> {% block style %} {% endblock %}
 </head>
 
-<body class="bg-light">
+<body>
     {% block body %}
     <a href="index.php">
         <div class="navbarLanco">
             <div class="hexagon">
                 <div class="hexTop"></div>
                 <div class="hexBottom"></div>
-                <div class="hexcriture">LANCODEX</div>
+<div class="hexcriture">LANCODEX</div>
             </div>
         </div>
     </a>
@@ -33,9 +33,9 @@
 
         </div>
     </div>
-
-
-    {% endblock %}
+    {%if session.login is defined %}
+    <div class="footer">
+        <a class="logout-link footer-component" href="index.php?page=deconnexion">Se déconnecter <span class="glyphicon glyphicon-log-out"></span></a></div> {% endif %} {% endblock %}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
