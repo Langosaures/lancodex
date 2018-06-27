@@ -157,6 +157,52 @@ div.gallery img {
     filter: hue-rotate(300deg);
 }
 
+/* Page du listing des cours */
+
+.conteneurCours {
+    margin-left: 13vw;
+    margin-right: 13vw;
+    width: auto;
+    padding: 10px;
+    background: rgba(68, 68, 68, 0.1);
+    font-family: 'Exo-Regular';
+    text-align: justify;
+}
+
+.conteneurCours h2 {
+    font-family: 'Exo-Medium'
+}
+
+.conteneurCoursListe {
+    margin-left: 15vw;
+}
+
+.listeCours {
+    list-style: none;
+    margin-left: 5vw;
+}
+
+.listeCours a:hover {
+    text-decoration: none;
+}
+
+.listeCours li {
+    background: rgba(68, 68, 68, 0.5);
+    border-radius: 0px 5px 5px 0px;
+    color: white;
+    padding: 1vh;
+    text-align: center;
+    width: 50%;
+    margin-bottom: 1vh;
+    transition: 0.3s;
+}
+
+.listeCours li:hover {
+    background: rgba(68, 68, 68, 0.6);
+    width: 55%;
+}
+
+
 /* Page description d'un langage (fiche.html) */
 
 td:nth-child(1),

@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %} {% block title %} {{ parent() }} Cours {% endblock %} {% block contenu %}
+<div class="conteneurCoursListe">
+    <h2>La liste des cours disponibles</h2>
+    <ul class="listeCours">
+        {%for e in listeCours%}
+        <a href="index.php?page=leCours&id={{e.id}}">
+            <li>{{e.libelle}}</li>
+        </a>
+        {%endfor%}
+    </ul>
+</div>
+{%endblock%}
