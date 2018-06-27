@@ -9,19 +9,45 @@ blanc : e2ffad
     src: url('../fonts/Exo-Thin.ttf')
 }
 
-@font-face{
-    font-family:'Exo-Black';
-    src:url('../fonts/Exo-Black.ttf')
+@font-face {
+    font-family: 'Exo-Black';
+    src: url('../fonts/Exo-Black.ttf')
 }
 
-@font-face{
-    font-family:'Exo-Regular';
-    src:url('../fonts/Exo-Regular.ttf');
+@font-face {
+    font-family: 'Exo-Regular';
+    src: url('../fonts/Exo-Regular.ttf');
 }
 
-@font-face{
-    font-family:'Exo-Medium';
-    src:url('../fonts/Exo-Medium.ttf');
+@font-face {
+    font-family: 'Exo-Medium';
+    src: url('../fonts/Exo-Medium.ttf');
+}
+
+body{
+    background-color: rgba(68, 68, 68, 0.1);
+}
+
+#content {
+    background-position:center;
+    background-image: url('../images/tech-rings.png');
+    background-size: 60vh;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    z-index: -100;
+    position: fixed;
+    animation: rotate 160s infinite;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg)
+    }50%{
+        transform: rotate(180deg)
+    }100%{
+        transform: rotate(360deg);
+    }
 }
 
 h2 {
@@ -37,16 +63,16 @@ div.gallery {
     height: 10em;
     width: 10em;
     border-radius: 50%;
-    background: rgba(68,68,68,0.2);
+    background: rgba(68, 68, 68, 0.4);
     border: inset 2px #444;
     transition: 0.5s ease-in-out;
     box-shadow: 0 0 5px #444;
 }
 
 div.gallery:hover {
-    background: rgba(68,68,68,0);
+    background: rgba(68, 68, 68, 0);
     border: inset 2px lightgreen;
-    box-shadow: 0 0 15px rgba(68,68,68,0.8);
+    box-shadow: 0 0 15px rgba(68, 68, 68, 0.8);
     cursor: pointer;
 }
 
@@ -59,64 +85,82 @@ div.gallery img {
 
 /* Page description d'un langage (fiche.html) */
 
-td:nth-child(1),td:nth-child(2){
-    border-right: solid 2px rgba(68,68,68,0.2);
+td:nth-child(1),
+td:nth-child(2) {
+    border-right: solid 2px rgba(68, 68, 68, 0.2);
 }
 
-td{
+td {
     text-align: center;
 }
 
-th{
+th {
     width: 12em;
     font-family: 'Exo-Black';
     font-size: 20px;
+    background: rgba(68,68,68,0.1);
+    border-radius: 50px;
 }
-th:last-child{
+
+th:last-child {
     width: 23em;
 }
 
-td,th{
+td,
+th {
     padding: 15px;
 }
 
-table{
+table {
+    border-radius: 25px;
     margin-left: 12em;
     font-family: 'Exo-Regular';
+    background: rgba(48,48,48,0.1);
 }
 
-table a{
+table a {
     text-decoration: none;
     color: inherit;
+    transition: all 0.3s ease-in-out;
 }
 
-table a:hover{
+table a:hover {
     text-decoration: none;
-    color: rgba(40,84,42,0.9);
-    text-shadow: 1px 1px 10px rgba(68,68,68,0.7);
-}
-#libelle-desc{
-    font-family: 'Exo-Medium';
+    color: rgba(40, 84, 42, 0.7);
+    text-shadow: 3px 1px 9px white;
 }
 
-.case-description img{
+table img{
+    transition: all 0.4s;
+}
+
+table img:hover{
+    filter: drop-shadow(0 0 6px black)
+}
+
+#libelle-desc {
+    font-family: 'Exo-Medium';
+    font-size: 20px;
+}
+
+.case-description img {
     height: 150px;
     width: auto;
 }
 
-.arrow-back{
+.arrow-back {
     position: fixed;
     top: 45%;
     text-align: center;
     font-size: 38px;
-    color: rgba(40,84,42,0.9);
+    color: rgba(40, 84, 42, 0.9);
     transition: all 0.2s ease-in-out;
 }
 
-.arrow-back:hover{
-    color: rgba(40,84,42,0.8);
-    
-    text-shadow: 0 8px 2px rgba(68,68,68,0.5);
+.arrow-back:hover {
+    color: rgba(40, 84, 42, 0.8);
+
+    text-shadow: 0 8px 2px rgba(68, 68, 68, 0.5);
 }
 
 /* Page tutoriel élément particuliers */
@@ -126,7 +170,7 @@ table a:hover{
     display: none;
     left: 60em;
     top: 25em;
-    background: rgb(68, 68, 68, 0.2);
+    background: rgb(68, 68, 68, 0.5);
     border: inset 2px #444;
     border-radius: 50%;
     height: 10em;
@@ -141,12 +185,13 @@ table a:hover{
     margin: 1.6em;
 }
 
-.dinoTuto{
+.dinoTuto {
     height: 20em;
     position: fixed;
     left: 60em;
     top: 25em;
 }
+
 /* Permet de rendre une image entièrement noire */
 
 .locked {
@@ -205,15 +250,24 @@ table a:hover{
 
 #fleche-suiv {
     color: #444;
+    width: 5vw;
+    border-radius: 10px;
+    line-height: 20px;
+    text-align: center;
+    background: rgba(68,68,68,0.3);
     position: absolute;
     right: 0;
-    margin: 60px 10px 0px 0px;
+    margin: 59px 10px 0px 0px;
     padding-bottom: 2px;
     animation: arrowK 1s infinite;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
-#fleche-menu{
+#fleche-suiv:hover{
+    background: rgba(68,68,68,0.2);
+}
+
+#fleche-menu {
     line-height: 20px;
     vertical-align: baseline;
     color: #f2f2f2;
@@ -226,11 +280,13 @@ table a:hover{
 }
 
 @keyframes arrowM {
-    0%{
+    0% {
         color: #f2f2f2;
-    }50%{
+    }
+    50% {
         color: darkorange;
-    }100%{
+    }
+    100% {
         color: #f2f2f2;
     }
 }
@@ -254,8 +310,8 @@ table a:hover{
     cursor: pointer
 }
 
-a.lien{
-    color: #444;
+a.lien {
+    color: rgba(28,28,28,1);
 }
 
 /* DINO SUR LA PLUPART DES PAGES */
@@ -343,8 +399,8 @@ a.lien{
     background-size: auto 96.9948px;
     background-position: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
-    border-left: solid 3px #333333;
-    border-right: solid 3px #333333;
+    border-left: solid 3px rgba(40, 84, 42);
+    border-right: solid 3px rgba(40, 84, 42);
     transition: all 0.5s ease-in-out;
 }
 
@@ -434,8 +490,8 @@ a.lien{
     box-shadow: 2px 3px 5px 1px black;
     color: #f3f3f3;
     text-align: center;
-    margin: auto;
-    width: 40em;
+    margin-left: 24vw;
+    width: 30vw;
     border: solid 0.1em #444;
     border-radius: 5px;
     background: rgb(63, 63, 63);
@@ -522,15 +578,15 @@ a.lien{
 }
 
 .conteneur-menu {
-    width: 30em;
+    width: 30vw;
     padding-top: 5em;
-    margin: auto;
+    margin-left: 22.8vw;
     text-align: center;
 }
 
 .menu-btn {
     font-size: 38px;
-    font-family: "Exo-Thin";
+    font-family: "Exo-Medium";
     color: #444 !important;
     border: 1px;
     width: 100%;
@@ -615,4 +671,3 @@ a .button28 {
     -webkit-transform: scale(0.1, 1);
     transform: scale(0.1, 1);
 }
-
