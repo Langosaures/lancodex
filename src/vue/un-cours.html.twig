@@ -1,8 +1,14 @@
 {% extends "base.html.twig" %} {% block title %} {{ parent() }} Cours {% endblock %} {% block contenu %}
+
 <div class="conteneurCours">
     {%for e in leCours%}
     <h2>Votre cours sur {{e.libelle|lower}} :</h2>
-    <p>{{e.contenu | convert_encoding('UTF-8', 'ISO-8859-1')}}</p>
+    <p>{{e.contenu | convert_encoding('UTF-8', 'ISO-8859-1') | raw}}</p>
     {%endfor%}
 </div>
+<a class="arrow-back" href="index.php?page=cours"><i class="glyphicon glyphicon-circle-arrow-left"> </i></a>
+
+ {%endblock%}
+{%block dino%}
 {%endblock%}
+
