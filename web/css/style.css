@@ -80,9 +80,48 @@ div.gallery img {
     position: relative;
     vertical-align: middle;
     align-content: center;
-    margin: 2.2em 2em 2em 2.6em;
+    left: 33px;
+    top: 33px;
     max-height: 6em;
     max-width: 6em;
+}
+
+/* Page de quizz */
+#table-quizz td{
+    padding: 20px;
+    border: none;
+    width: 20vw;
+    height: 20vh;
+}
+
+.quizz-conteneur{
+    margin-left: 10vw;
+    margin-top: -5vh!important;
+}
+
+#submit-quizz{
+    margin-left: 40vw;
+    background: rgba(40,84,42,0.8);
+    border: none;
+    padding: 8px;
+    width: 10vw;
+    text-align: center;
+    border-right: solid 2px rgba(40,82,42,0.8);
+    border-radius: 0px 100px 100px 0px;
+}
+
+/* Permet de changer la saturation d'un logo pour les mauvaises réponses */
+
+.satur1{
+    filter: hue-rotate(80deg);
+}
+
+.satur2{
+    filter: hue-rotate(220deg) grayscale(50%);
+}
+
+.satur3{
+    filter: hue-rotate(300deg);
 }
 
 /* Page description d'un langage (fiche.html) */
@@ -93,9 +132,14 @@ td:nth-child(2) {
 }
 
 .box-lien{
-    background: rgba(68,68,68,0.3);
+    background: rgba(68,68,68,0.2);
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out
+}
+
+.box-lien:hover{
+    background: rgba(68,68,68,0.2)
 }
 
 .blur{
@@ -147,7 +191,7 @@ table img{
     transition: all 0.4s;
 }
 
-table img:hover{
+#description img:hover{
     filter: drop-shadow(0 0 6px black)
 }
 
@@ -163,7 +207,8 @@ table img:hover{
 
 .arrow-back {
     position: fixed;
-    top: 45%;
+    top: 35vh;
+    left: 7vw;
     text-align: center;
     font-size: 38px;
     color: rgba(40, 84, 42, 0.9);
