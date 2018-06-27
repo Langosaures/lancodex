@@ -2,7 +2,7 @@
 function actionLangage($twig, $db){
     $langage = new Langage($db);
     $leLangage = $langage->select($_GET['id']);
-    // Création d'une instance de la clasee dino
+    // Création d'une instance de la classe dino
     $Dino = new Dino($db);
     // Application de la méthode sélect
     $listeInd = $Dino->select();
@@ -40,25 +40,22 @@ $tabBool =  array();
 function actionLogo($twig, $db){
     $bool;
     $reponse;
-    // si la personne a envoyé sa réponse
-    if (isset($_POST['formulaireLogo'])){
-        //Récupération du logo choisi
-        $element = $_GET['Logo'];
-        //Vérifier que le logo est bon
-        //Si bon, bool = true et reponse = logo
-        if ($element == $resultat[0]) {
-            $bool = true;
-            $reponse = $element;
-        }
-        //Sinon bool = false et reponse = logo
-        else {
-            $bool = false;
-            $reponse = $element;
-        }
-        //Ajout des valeurs dans le tableau
-        $tabBool[0] = $bool;
-        $tabReponse[0] = $reponse;
+    //Récupération du logo choisi
+    $element = $_GET['formLogo'];
+    //Vérifier que le logo est bon
+    //Si bon, bool = true et reponse = logo
+    if ($element == $resultat[0]) {
+        $bool = true;
+        $reponse = $element;
     }
+    //Sinon bool = false et reponse = logo
+    else {
+        $bool = false;
+        $reponse = $element;
+    }
+    //Ajout des valeurs dans le tableau
+    $tabBool[0] = $bool;
+    $tabReponse[0] = $reponse;
 
     // Envoie du résultat sur la page twig
     echo $twig->render('quizz.html.twig');
@@ -69,10 +66,8 @@ function actionLogo($twig, $db){
 function actionNom($twig, $db){
     $bool;
     $reponse;
-    // si la personne a envoyé sa réponse
-    if (isset($_POST['formulaireNom'])){
     //Récupération du Nom choisi
-    $element = $_GET['Nom'];
+    $element = $_GET['formNom'];
     //Vérifier que le Nom est bon
     //Si bon, bool = true et reponse = Nom
     if ($element == $resultat[1]) {
@@ -87,7 +82,6 @@ function actionNom($twig, $db){
     //Ajout des valeurs dans le tableau
     $tabBool[1] = $bool;
     $tabReponse[1] = $reponse;
-    }
 
     // Envoie du résultat sur la page twig
     echo $twig->render('quizz.html.twig');
@@ -98,10 +92,8 @@ function actionNom($twig, $db){
 function actionDescriptif($twig, $db){
     $bool;
     $reponse;
-    // si la personne a envoyé sa réponse
-    if (isset($_POST['formulaireDescriptif'])){
     //Récupération du Descriptif choisi
-    $element = $_GET['Descriptif'];
+    $element = $_GET['formDesc'];
     //Vérifier que le Descriptif est bon
     //Si bon, bool = true et reponse = Descriptif
     if ($element == $resultat[2]) {
@@ -116,8 +108,7 @@ function actionDescriptif($twig, $db){
     //Ajout des valeurs dans le tableau
     $tabBool[2] = $bool;
     $tabReponse[2] = $reponse;
-    }
-    
+
     // Envoie du résultat sur la page twig
     echo $twig->render('quizz.html.twig');
 }
