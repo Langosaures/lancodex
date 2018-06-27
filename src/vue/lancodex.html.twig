@@ -10,7 +10,7 @@
 </div>{%else%}
     <h2>Mon lancodex</h2>
    {% for e in listeTechno %}
-       <div class="gallery"> <img class="elementLanco locked" id="{{e.id}}" src="images/{{e.logo}}" alt="{{e.libelle}}"></div>
+     <a href="index.php?page=fiche&id={{e.id}}">  <div class="gallery"><img class="elementLanco locked" id="{{e.id}}" src="images/{{e.logo}}" alt="{{e.libelle}}"></div></a>
    {% endfor %}     
 
 {% endif %} {% endblock %}

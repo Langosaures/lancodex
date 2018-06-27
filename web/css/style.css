@@ -9,6 +9,21 @@ blanc : e2ffad
     src: url('../fonts/Exo-Thin.ttf')
 }
 
+@font-face{
+    font-family:'Exo-Black';
+    src:url('../fonts/Exo-Black.ttf')
+}
+
+@font-face{
+    font-family:'Exo-Regular';
+    src:url('../fonts/Exo-Regular.ttf');
+}
+
+@font-face{
+    font-family:'Exo-Medium';
+    src:url('../fonts/Exo-Medium.ttf');
+}
+
 h2 {
     font-family: 'Exo-Thin';
 }
@@ -40,6 +55,68 @@ div.gallery img {
     max-width: 7em;
     object-fit: fill;
     margin: 1.8em;
+}
+
+/* Page description d'un langage (fiche.html) */
+
+td:nth-child(1),td:nth-child(2){
+    border-right: solid 2px rgba(68,68,68,0.2);
+}
+
+td{
+    text-align: center;
+}
+
+th{
+    width: 12em;
+    font-family: 'Exo-Black';
+    font-size: 20px;
+}
+th:last-child{
+    width: 23em;
+}
+
+td,th{
+    padding: 15px;
+}
+
+table{
+    margin-left: 12em;
+    font-family: 'Exo-Regular';
+}
+
+table a{
+    text-decoration: none;
+    color: inherit;
+}
+
+table a:hover{
+    text-decoration: none;
+    color: rgba(40,84,42,0.9);
+    text-shadow: 1px 1px 10px rgba(68,68,68,0.7);
+}
+#libelle-desc{
+    font-family: 'Exo-Medium';
+}
+
+.case-description img{
+    height: 150px;
+    width: auto;
+}
+
+.arrow-back{
+    position: fixed;
+    top: 45%;
+    text-align: center;
+    font-size: 38px;
+    color: rgba(40,84,42,0.9);
+    transition: all 0.2s ease-in-out;
+}
+
+.arrow-back:hover{
+    color: rgba(40,84,42,0.8);
+    
+    text-shadow: 0 8px 2px rgba(68,68,68,0.5);
 }
 
 /* Page tutoriel élément particuliers */
@@ -79,18 +156,6 @@ div.gallery img {
     -o-filter: brightness(00%);
     -ms-filter: brightness(00%);
 }
-
-
-/*
-.locked:hover {
-    filter: brightness(100%);
-    -webkit-filter: brightness(100%);
-    -moz-filter: brightness(100%);
-    -o-filter: brightness(100%);
-    -ms-filter: brightness(100%);
-}
-*/
-
 
 /* DINO PAGE TUTO CONCEPT */
 

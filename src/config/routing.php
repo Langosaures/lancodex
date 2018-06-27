@@ -10,6 +10,7 @@ $lesPages['deconnexion'] = "actionDeconnexion;0";
 $lesPages['apropos'] = "actionApropos;0";
 $lesPages['maintenance'] = "actionMaintenance;0";
 $lesPages['lancodex'] = "actionTechno;0";
+$lesPages['fiche']="actionLangage;0";
 
 
 if ($db!=null){
