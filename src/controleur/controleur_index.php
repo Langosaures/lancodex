@@ -15,7 +15,7 @@ function actionAccueil($twig, $db){
           }  
           else{
            $_SESSION['login'] = $inputEmail;     
-           header("Location:index.php");
+           header("Location:index.php?page=accueil");
           } 
         }
         else{
@@ -49,7 +49,7 @@ function actionConnexion($twig, $db){
           }  
           else{
            $_SESSION['login'] = $inputEmail;     
-           header("Location:index.php");
+           header("Location:index.php?page=accueil");
           } 
         }
         else{
@@ -64,7 +64,7 @@ function actionConnexion($twig, $db){
 function actionDeconnexion($twig){
     session_unset();
     session_destroy();
-    header("Location:index.php");
+    header("Location:index.php?page=accueil");
 }
 
 function actionInscrire($twig, $db){
@@ -109,4 +109,10 @@ function actionApropos($twig){
 function actionMaintenance($twig){
     echo $twig->render('maintenance.html.twig', array());
 }
+
+function actionChoixtuto($twig){
+    echo $twig->render('choixtuto.html.twig', array());
+}
+
+
 ?>
