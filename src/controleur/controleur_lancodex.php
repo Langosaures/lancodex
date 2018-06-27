@@ -42,7 +42,8 @@ function actionLogo($twig, $db){
     // si la personne a envoyé sa réponse
     if (isset($_POST['formulaireLogo'])){
         //Récupération du logo choisi
-        $element = $_GET['Logo'];
+        $element = $_GET['choix'];
+        var_dump($element);  ///////////////////////// tu vérifie ce que tu veux récupérer et comment
         //Vérifier que le logo est bon
         //Si bon, bool = true et reponse = logo
         if ($element == $resultat[0]) {
