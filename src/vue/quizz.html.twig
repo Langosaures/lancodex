@@ -1,20 +1,6 @@
-{% extends "base.html.twig" %}{% block title %} {{ parent() }} Quizz {% endblock %} {% block contenu %}
-<div class="quizz-conteneur">
-<h2>Quelle est la bonne image ?</h2>
-<form action="" onsubmit="redirect(index.php?page=quizz);return false;">
-    <table id="table-quizz">
-        <tr class="quizz">
-            <td>
-                <input name="choix" type="radio"><img class="satur1" src="images/php.png" alt=""></td>
-            <td><input name="choix" type="radio"><img class="satur2" src="images/php.png" alt=""></td>
-        </tr>
-        <tr class="quizz">
-            <td>
-                <input name="choix" type="radio"><img class="satur3"src="images/php.png" alt=""></td>
-            <td><input name="choix" type="radio"><img src="images/php.png" alt=""></td>
-        </tr>
-        <input type="submit" id="submit-quizz" value="Suivant">
-    </table>
-</form>
-</div>
-{% endblock %} {%block dino%}{%endblock%}
+ {% extends "base.html.twig" %}{% block title %} {{ parent() }} Quizz {% endblock %} {% block contenu %} {% if element == 1 %} {% for e in Reponses %}
+<img src="images/{{e.logo}}" alt="{{e.logo}}" /> {% endfor %} {% elseif element == 2 %} {% for e in Reponses %}
+<div>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</div>
+{% endfor %} {% elseif element == 3 %} {% for e in Reponses %}
+<div>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</div>
+{% endfor %} {% endif %} {% endblock %} {%block dino%}{%endblock%}
