@@ -90,6 +90,8 @@ div.gallery img {
 
 /* Page de quizz */
 
+/* partie logo*/
+
 #table-quizz td {
     padding: 20px;
     border: none;
@@ -101,20 +103,44 @@ div.gallery img {
     max-height: 20vh;
 }
 
+/* partie nom */
+
+.quizz-list {
+    list-style: none
+}
+
+.quizz-list li {
+    font-family: 'Exo-Medium';
+    background: rgba(68, 68, 68, 0.3);
+    border-radius: 8px;
+    padding: 1vh;
+    margin-bottom: 1vh;
+}
+
+.quizz-list li input {
+    margin-right: 10px;
+}
+
 .quizz-conteneur {
     margin-left: 10vw;
     margin-top: -5vh !important;
 }
 
 #submit-quizz {
-    margin-left: 40vw;
+    margin-left: 25vw;
     background: rgba(40, 84, 42, 0.8);
     border: none;
+    border-radius: 5px;
     padding: 8px;
     width: 10vw;
     text-align: center;
-    border-right: solid 2px rgba(40, 82, 42, 0.8);
-    border-radius: 0px 100px 100px 0px;
+    color: #f2f2f2;
+    transition: 0.3s;
+}
+
+#submit-quizz:hover {
+    background: rgba(40, 84, 42, 0.9);
+    color: #f2f2f2;
 }
 
 /* Permet de changer la saturation d'un logo pour les mauvaises réponses */
