@@ -35,8 +35,14 @@ $tabBool =  array();
 function actionLogo($twig, $db){
     // les réponses
     $res = new QR($db);
+<<<<<<< HEAD
     $res = $res->selectRepLogo($_GET['id']);
 
+=======
+    $res = $res->selectRep($_GET['id']);
+    $langage = new Langage($db);
+    $langage=$langage->select($_GET['id']);
+>>>>>>> f6fc652e07ba56c1c378d7b851a2e6dfb9e8a6cf
     $bool;
     $reponse;
     $element = $_GET['element'];
@@ -48,7 +54,7 @@ function actionLogo($twig, $db){
         //Si bon, bool = true et reponse = logo
         if ($element == $resultat[0]) {
             $bool = true;
-            $reponse = $element;
+            $reponse = $element;}
         }
         //Sinon bool = false et reponse = logo
         else {
@@ -58,10 +64,12 @@ function actionLogo($twig, $db){
         //Ajout des valeurs dans le tableau
         $tabBool[0] = $bool;
         $tabReponse[0] = $reponse;
-    }
-
     // Envoie du résultat sur la page twig
+<<<<<<< HEAD
     echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesLogo'=>$res));
+=======
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res,'techno'=>$langage));
+>>>>>>> f6fc652e07ba56c1c378d7b851a2e6dfb9e8a6cf
 }
 
 
@@ -88,7 +96,7 @@ function actionNom($twig, $db){
         else {
             $bool = false;
             $reponse = $element;
-            }
+            } 
         //Ajout des valeurs dans le tableau
         $tabBool[1] = $bool;
         $tabReponse[1] = $reponse;

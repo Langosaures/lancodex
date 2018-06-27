@@ -9,12 +9,12 @@
     </form>
 </div>{%else%}
     <h2>Mon lancodex</h2>
+    <a class="arrow-back" href="index.php"><i class="glyphicon glyphicon-circle-arrow-left"> </i></a>
     {% for r in listeMaitrise %}
         <a href="index.php?page=fiche&id={{r.id}}">  <div class="gallery"><img class="elementLanco " id="{{r.id}}" src="images/{{r.logo}}" alt="{{r.libelle}}"></div></a>    
    {% endfor %}
    {% for e in listeNonMaitrise %}
         <a href="index.php?page=fiche&id={{e.id}}">  <div class="gallery"><img class="elementLanco locked" id="{{e.id}}" src="images/{{e.logo}}" alt="{{e.libelle}}"></div></a>
     {% endfor %}
-   
 
 {% endif %} {% endblock %}
