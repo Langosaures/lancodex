@@ -8,14 +8,14 @@ class Maitrise{
     // création de nos requêtes
     public function __construct($db){
         $this->db = $db;  
-        // requête permettant de sélectionner aléatoirement nos technologies
-        $this->select = $db->prepare("select u.prenom as prenom, u.nom as nom, t.libelle as techno from maitrise m, technologie t, utilisateur u where u.email = m.idUtilisateur and t.id = m.idTechnologie ");
+        // requête permettant de récupérer les maitrises d'un utilisateur
+        $this->select = $db->prepare("select u.prenom as prenom, u.nom as nom, t.libelle as techno from maitrise m, technologie t, utilisateur u where u.email = m.idUtilisateur and t.id = m.idTechnologie u.email = :email");
         $this->insert = $db->prepare("insert into maitrise(idUtilisateur, idTechnologie) values (:idUser, :idTech)");   
         }
 
     // fonction permettant récupérer le résultat de la requête ci-dessus
-    public function select(){
-        $this->select->execute();
+    public function select($email){
+        $this->select->execute(array(':email'=>$email));
         if ($this->select->errorCode()!=0){
              print_r($this->select->errorInfo());  
         }
