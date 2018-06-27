@@ -13,6 +13,35 @@ h2 {
     font-family: 'Exo-Thin';
 }
 
+/* Page lancodex */
+
+div.gallery {
+    margin: 15px;
+    border: 1px solid #ccc;
+    float: left;
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    background: rgba(68,68,68,0.2);
+    border: inset 2px #444;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 0 5px #444;
+}
+
+div.gallery:hover {
+    background: rgba(68,68,68,0);
+    border: inset 2px lightgreen;
+    box-shadow: 0 0 15px rgba(68,68,68,0.8);
+    cursor: pointer;
+}
+
+div.gallery img {
+    max-height: 7em;
+    max-width: 7em;
+    object-fit: fill;
+    margin: 1.8em;
+}
+
 /* Page tutoriel élément particuliers */
 
 .elementLanca {
@@ -435,7 +464,7 @@ a.lien{
 }
 
 .menu-btn {
-    font-size: 32px;
+    font-size: 38px;
     font-family: "Exo-Thin";
     color: #444 !important;
     border: 1px;
@@ -521,3 +550,4 @@ a .button28 {
     -webkit-transform: scale(0.1, 1);
     transform: scale(0.1, 1);
 }
+
