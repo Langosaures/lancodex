@@ -22,8 +22,6 @@ function actionLangage($twig, $db){
      // Récupération les fausses réponses par question
      $listeFausseRep = $FausseRep->selectFausseRep($_GET['id']);
 
-     var_dump($_SESSION['login']);
-
     // Envoie du résultat sur la page twig
     echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'listeFausseRep'=>$listeFausseRep));
 }
