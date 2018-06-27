@@ -1,26 +1,32 @@
  {% extends "base.html.twig" %}{% block title %} {{ parent() }} Quizz {% endblock %} {% block contenu %}
 <div class="quizz-conteneur">
     <form action="" onsubmit="redirect(index.php?page=quizz);return false;">
-        {%if element == 1%}
+        <!-- pour les logo -->
+        {%if element == 1%} {%for e in techno%}
         <h2>Quelle est la bonne image ?</h2>
 
         <table id="table-quizz">
             <tr class="quizz">
                 <td>
-                    <input name="choix" type="radio"><img class="satur1" src="images/php.png" alt=""></td>
-                <td><input name="choix" type="radio"><img class="satur2" src="images/php.png" alt=""></td>
+                    <input name="choix" type="radio"><img class="satur1" src="images/{{e.logo}}" alt=""></td>
+                <td>
+                    <input name="choix" type="radio"><img class="satur2" src="images/{{e.logo}}" alt=""></td>
             </tr>
             <tr class="quizz">
                 <td>
-                    <input name="choix" type="radio"><img class="satur3" src="images/php.png" alt=""></td>
-                <td><input name="choix" type="radio"><img src="images/php.png" alt=""></td>
+                    <input name="choix" type="radio"><img class="satur3" src="images/{{e.logo}}" alt=""></td>
+                <td>
+                    <input name="choix" type="radio"><img src="images/{{e.logo}}" alt=""></td>
             </tr>
             <input type="submit" id="submit-quizz" value="Suivant">
         </table>
-
+        {%endfor%}
+        <!-- pour les noms -->
         {% elseif element == 2 %} {% for e in Reponses %}
         <div>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</div>
-        {% endfor %} {% elseif element == 3 %} {% for e in Reponses %}
+        {% endfor %}
+        <!-- pour les descriptifs -->
+        {% elseif element == 3 %} {% for e in Reponses %}
         <div>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</div>
         {% endfor %} {% endif %}</form>
 </div>

@@ -36,7 +36,8 @@ function actionLogo($twig, $db){
     // les réponses
     $res = new QR($db);
     $res = $res->selectRep($_GET['id']);
-
+    $langage = new Langage($db);
+    $langage=$langage->select($_GET['id']);
     $bool;
     $reponse;
     $element = $_GET['element'];
@@ -59,7 +60,7 @@ function actionLogo($twig, $db){
         $tabBool[0] = $bool;
         $tabReponse[0] = $reponse;
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res,'techno'=>$langage));
 }
 
 
