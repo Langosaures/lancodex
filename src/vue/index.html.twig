@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}{% block title %} {{ parent() }} Se connecter {% endblock %} {% block contenu %} {%if session.login is not defined %}
+{% extends "base.html.twig" %}{% block title %} {{ parent() }} Se connecter {% endblock %} {% block contenu %} {% if session.login is not defined %}
 <div class="conteneur-central">
     <form class="form-signin" action="index.php?page=connexion" method="post" enctype="application/x-www-form-urlencoded">
         <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
@@ -8,10 +8,14 @@
         <a class="go-back-arrow" href="index.php?page=inscrire" id="inscription-link">S'inscrire <i class="glyphicon glyphicon-circle-arrow-right"></i></a>
     </form>
 </div>{%else%}
-<div class="conteneur-menu">
-    <ul class="main-menu">
-        <li><a class="sim-button button28 menu-btn" id="button-5" href="index.php?page=lancodex">Votre <i>lancodex</i></a></li>
-        <li><a class="sim-button button28 menu-btn" href="index.php?page=apropos">Le concept</a></li>
-    </ul>
-</div>
-{% endif %} {% endblock %}
+     
+  <div class="conteneur-menu">
+            <div class="sim-button  menu-btn">Voulez vous voir le tutoriel ?</div>
+                <ul class="main-menu">
+                    <li><a class="sim-button button28 menu-btn" id="button-5" href="index.php?page=apropos">Voir le <i>tutoriel</i></a></li>
+                    <li><a class="sim-button button28 menu-btn" href="index.php?page=choixtuto">Accéder à <i>l'accueil</i></a></li>
+                </ul>
+            </div>
+        </div>
+{% endif %} 
+{% endblock %}
