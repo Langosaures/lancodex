@@ -75,7 +75,6 @@ function actionInscrire($twig, $db){
       $inputPassword2 =$_POST['inputPassword2']; 
       $nom = $_POST['nom']; 
       $prenom =$_POST['prenom']; 
-      $role = 2; // Signifie que par défaut, une personne est un simple utilisateur
       $form['valide'] = true;
       if ($inputPassword!=$inputPassword2){
         $form['valide'] = false;  
@@ -83,7 +82,9 @@ function actionInscrire($twig, $db){
       }
       else{
         $utilisateur = new Utilisateur($db); 
-        $exec = $utilisateur->insert($inputEmail, password_hash($inputPassword, PASSWORD_DEFAULT), $role, $nom, $prenom);
+        $exec = $utilisateur->insert($inputEmail, password_hash($inputPassword, PASSWORD_DEFAULT), $nom, $prenom);
+        $nullmaitrise = new Maitrise($db);
+        $exec2 = $nullmaitrise->insert($inputEmail, 8);
         if (!$exec){
           $form['valide'] = false;  
           $form['message'] = 'Problème d\'insertion dans la table utilisateur '; 
@@ -92,7 +93,6 @@ function actionInscrire($twig, $db){
       }
       
       $form['email'] = $inputEmail;
-      $form['role'] = $role;
       
     }
     echo $twig->render('inscrire.html.twig', array('form'=>$form));

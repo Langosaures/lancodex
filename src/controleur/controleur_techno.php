@@ -23,11 +23,7 @@ function actionTechno($twig, $db){
         $listeNonMaitrise = $Maitrise->selectNonMaitrise($_SESSION['login']);
 
         // Envoie du résultat sur la page twig
-<<<<<<< HEAD
-    echo $twig->render('quizz.html.twig', array('listeTechno'=>$listeTech, 'listeIndices'=>$listeInd));
-=======
     echo $twig->render('lancodex.html.twig', array('listeNonMaitrise'=>$listeNonMaitrise, 'listeIndices'=>$listeInd, 'listeMaitrise'=>$listeMaitrise));
->>>>>>> 76cce3207febbbaf15b18bba0da75572c72bb282
 }
 
 ?>
