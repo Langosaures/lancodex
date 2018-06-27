@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 27, 2018 at 08:25 PM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Hôte : 127.0.0.1
+-- Généré le :  mer. 27 juin 2018 à 21:59
+-- Version du serveur :  10.1.31-MariaDB
+-- Version de PHP :  7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdgestionprojets`
+-- Base de données :  `bdgestionprojets`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indice`
+-- Structure de la table `cours`
+--
+
+CREATE TABLE `cours` (
+  `id` int(50) NOT NULL,
+  `libelle` varchar(50) NOT NULL,
+  `contenu` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `cours`
+--
+
+INSERT INTO `cours` (`id`, `libelle`, `contenu`) VALUES
+(1, 'Le HTML', 'C\'est un truc qui sert à faire des balises plutôt mignonnes.'),
+(2, 'Le PHP', 'Blup !');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `indice`
 --
 
 CREATE TABLE `indice` (
@@ -35,7 +55,7 @@ CREATE TABLE `indice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `indice`
+-- Déchargement des données de la table `indice`
 --
 
 INSERT INTO `indice` (`id`, `libelle`, `idTechno`) VALUES
@@ -71,7 +91,7 @@ INSERT INTO `indice` (`id`, `libelle`, `idTechno`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `maitrise`
+-- Structure de la table `maitrise`
 --
 
 CREATE TABLE `maitrise` (
@@ -80,19 +100,22 @@ CREATE TABLE `maitrise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `maitrise`
+-- Déchargement des données de la table `maitrise`
 --
 
 INSERT INTO `maitrise` (`idUtilisateur`, `idTechnologie`) VALUES
 ('admin@simpleduc.org', 1),
+('azeo@zk', 8),
+('blup@bl.fr', 8),
 ('matteo@test.com', 8),
 ('test2@simpleduc.org', 8),
-('test@simpleduc.org', 8);
+('test@simpleduc.org', 8),
+('test@test.fr', 8);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `question`
+-- Structure de la table `question`
 --
 
 CREATE TABLE `question` (
@@ -103,7 +126,7 @@ CREATE TABLE `question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `question`
+-- Déchargement des données de la table `question`
 --
 
 INSERT INTO `question` (`id`, `libelle`, `idTechnologie`, `idBonneReponse`) VALUES
@@ -132,7 +155,7 @@ INSERT INTO `question` (`id`, `libelle`, `idTechnologie`, `idBonneReponse`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reponse`
+-- Structure de la table `reponse`
 --
 
 CREATE TABLE `reponse` (
@@ -143,7 +166,7 @@ CREATE TABLE `reponse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `reponse`
+-- Déchargement des données de la table `reponse`
 --
 
 INSERT INTO `reponse` (`id`, `libelle`, `idQuestion`, `Type`) VALUES
@@ -176,7 +199,7 @@ INSERT INTO `reponse` (`id`, `libelle`, `idQuestion`, `Type`) VALUES
 (27, 'Il est utilisé pour faire le design des pages Web', 9, 'description'),
 (28, 'Page Helper Process', 10, 'nom'),
 (29, 'Personnal HyperText Processor', 10, 'nom'),
-(30, 'PHP HyperText Preprocessor', 10, 'nom'),
+(30, 'HyperText Preprocessor', 10, 'nom'),
 (31, 'Private Home Page', 10, 'nom'),
 (32, 'php.png', 11, 'logo'),
 (33, 'A traiter des informations côté client', 12, 'description'),
@@ -214,7 +237,7 @@ INSERT INTO `reponse` (`id`, `libelle`, `idQuestion`, `Type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `technologie`
+-- Structure de la table `technologie`
 --
 
 CREATE TABLE `technologie` (
@@ -225,7 +248,7 @@ CREATE TABLE `technologie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `technologie`
+-- Déchargement des données de la table `technologie`
 --
 
 INSERT INTO `technologie` (`id`, `libelle`, `description`, `logo`) VALUES
@@ -241,7 +264,7 @@ INSERT INTO `technologie` (`id`, `libelle`, `description`, `logo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisateur`
+-- Structure de la table `utilisateur`
 --
 
 CREATE TABLE `utilisateur` (
@@ -252,35 +275,44 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `utilisateur`
+-- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`email`, `mdp`, `nom`, `prenom`) VALUES
 ('admin@simpleduc.org', '$2y$10$q8.AZxrDgmrHediCOUPvpOyDJJuOP70041CHa8NYq9QlhTsYiYXjG', 'admin', 'admin'),
+('azeo@zk', '$2y$10$NXrIKhL0uLijcTgokuJPEez.I40egYICS5BoCdkVmIaIMkNldAWCq', 'z', 'z'),
+('blup@bl.fr', '$2y$10$kWw6PpFVa1gH./sd1oFTP.YCqOMmmuq8aSpl0XIlux5M3EUnHb5SG', 'a', 'a'),
 ('matteo@test.com', '$2y$10$3VPo3qFj4h/uIXq3Bpycx.qqp4K.xaHwjzvDLnkWzWY4yqoeibEkC', 'test', 'Matteo'),
 ('test2@simpleduc.org', '$2y$10$Ytl65biwd9NeWk2aZgT9J.Z5cR2QviejK3e3S0kRse/4hZncmamTu', 'test2', 'test2'),
-('test@simpleduc.org', '$2y$10$sV5EpXbZ6Bcqm36OlCVWleFWgUO2F6O5rVm2dtrtGrEwtqauK99wy', 'test', 'test');
+('test@simpleduc.org', '$2y$10$sV5EpXbZ6Bcqm36OlCVWleFWgUO2F6O5rVm2dtrtGrEwtqauK99wy', 'test', 'test'),
+('test@test.fr', '$2y$10$7Rqiz/3Zm2fr636NRoVDG.o2HGvW16Nq03gLuTqFEzQtWuLbWe3bO', '1', '1');
 
 --
--- Indexes for dumped tables
+-- Index pour les tables déchargées
 --
 
 --
--- Indexes for table `indice`
+-- Index pour la table `cours`
+--
+ALTER TABLE `cours`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `indice`
 --
 ALTER TABLE `indice`
   ADD PRIMARY KEY (`id`),
   ADD KEY `techno` (`idTechno`);
 
 --
--- Indexes for table `maitrise`
+-- Index pour la table `maitrise`
 --
 ALTER TABLE `maitrise`
   ADD PRIMARY KEY (`idUtilisateur`,`idTechnologie`) USING BTREE,
   ADD KEY `maitrise2` (`idTechnologie`);
 
 --
--- Indexes for table `question`
+-- Index pour la table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`),
@@ -288,78 +320,84 @@ ALTER TABLE `question`
   ADD KEY `idBonneReponse` (`idBonneReponse`);
 
 --
--- Indexes for table `reponse`
+-- Index pour la table `reponse`
 --
 ALTER TABLE `reponse`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idQuestion` (`idQuestion`);
 
 --
--- Indexes for table `technologie`
+-- Index pour la table `technologie`
 --
 ALTER TABLE `technologie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `utilisateur`
+-- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
--- AUTO_INCREMENT for table `indice`
+-- AUTO_INCREMENT pour la table `cours`
+--
+ALTER TABLE `cours`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `indice`
 --
 ALTER TABLE `indice`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `question`
+-- AUTO_INCREMENT pour la table `question`
 --
 ALTER TABLE `question`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `reponse`
+-- AUTO_INCREMENT pour la table `reponse`
 --
 ALTER TABLE `reponse`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT for table `technologie`
+-- AUTO_INCREMENT pour la table `technologie`
 --
 ALTER TABLE `technologie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `indice`
+-- Contraintes pour la table `indice`
 --
 ALTER TABLE `indice`
   ADD CONSTRAINT `techno` FOREIGN KEY (`idTechno`) REFERENCES `technologie` (`id`);
 
 --
--- Constraints for table `maitrise`
+-- Contraintes pour la table `maitrise`
 --
 ALTER TABLE `maitrise`
   ADD CONSTRAINT `maitrise2` FOREIGN KEY (`idTechnologie`) REFERENCES `technologie` (`id`),
   ADD CONSTRAINT `maitriser` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`email`);
 
 --
--- Constraints for table `question`
+-- Contraintes pour la table `question`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`idTechnologie`) REFERENCES `technologie` (`id`),
   ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`idBonneReponse`) REFERENCES `reponse` (`id`);
 
 --
--- Constraints for table `reponse`
+-- Contraintes pour la table `reponse`
 --
 ALTER TABLE `reponse`
   ADD CONSTRAINT `reponse_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question` (`id`);
