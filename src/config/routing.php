@@ -11,6 +11,7 @@ $lesPages['apropos'] = "actionApropos;0";
 $lesPages['maintenance'] = "actionMaintenance;0";
 $lesPages['lancodex'] = "actionTechno;0";
 $lesPages['fiche']="actionLangage;0";
+$lesPages['choixtuto'] = "actionChoixtuto;0";
 
 
 if ($db!=null){
@@ -20,7 +21,7 @@ if ($db!=null){
   else{
     // S'il n'y a rien en mémoire, nous lui donnons la valeur « accueil » afin de lui afficher une page
     //par défaut
-    $page = 'accueil';
+    $page = 'choixtuto';
   }
 
   if (!isset($lesPages[$page])){
