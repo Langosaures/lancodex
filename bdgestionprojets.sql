@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2018 at 09:27 AM
+-- Generation Time: Jun 27, 2018 at 09:47 AM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -225,13 +225,13 @@ CREATE TABLE `technologie` (
 --
 
 INSERT INTO `technologie` (`id`, `libelle`, `description`, `logo`) VALUES
-(1, 'html', 'Le HyperText Markup Language  est un langage permettant de créer le squelette d\'une page web à l\'aide de balises. Celui-ci nous permet d\'écrire de l\'hypertext, d\'où son nom.', 'html.png'),
-(2, 'css', 'Le Cascading Style Sheets est un langage complémentaire du HTML car il permet de gérer la mise en page d\'un site, son design.', 'css.png'),
-(3, 'php', 'L\'Hypertext Processor est un langage de programmation libre permettant de créer des pages Web dynamiques et fonctionnant avec la plupart des langages interprétés ( javascript, html…)', 'php.png'),
-(4, 'java', 'Le Java est un langage compilé ayant la particularité de créer des applications facilement portables sur divers systèmes d\'exploitation comme Unix, Mac OS, Windows', 'java.png'),
-(5, 'angular', 'Angular est un framework du langage Javascript. Celui-ci rend le HTML dynamique pour permettre au développeur de créer ses propres balises et attributs. Ce framework pousse le développeur à une création structurée et a pour but d\'apporter un aspect applicatif au front-office.', 'angularjs.png'),
-(6, 'sql', 'Le Structured Query Language est un langage informatique utilisé pour la gestion de base de données. Celui-ci envoie des requêtes à la BDD pour intéragir avec ses informations.', 'sql.png'),
-(7, 'python', 'Le python est un langage de programmation objet, multi-paradigme et multiplateforme favorisant la programmation structurée, fonctionnelle et objet. Il convient à tous types de développeurs.', 'python.png');
+(1, 'HTML', 'Le HyperText Markup Language  est un langage permettant de créer le squelette d\'une page web à l\'aide de balises. Celui-ci nous permet d\'écrire de l\'hypertext, d\'où son nom.', 'html.png'),
+(2, 'CSS', 'Le Cascading Style Sheets est un langage complémentaire du HTML car il permet de gérer la mise en page d\'un site, son design.', 'css.png'),
+(3, 'PHP', 'L\'Hypertext Processor est un langage de programmation libre permettant de créer des pages Web dynamiques et fonctionnant avec la plupart des langages interprétés ( javascript, html…)', 'php.png'),
+(4, 'Java', 'Le Java est un langage compilé ayant la particularité de créer des applications facilement portables sur divers systèmes d\'exploitation comme Unix, Mac OS, Windows', 'java.png'),
+(5, 'Angular', 'Angular est un framework du langage Javascript. Celui-ci rend le HTML dynamique pour permettre au développeur de créer ses propres balises et attributs. Ce framework pousse le développeur à une création structurée et a pour but d\'apporter un aspect applicatif au front-office.', 'angularjs.png'),
+(6, 'SQL', 'Le Structured Query Language est un langage informatique utilisé pour la gestion de base de données. Celui-ci envoie des requêtes à la BDD pour intéragir avec ses informations.', 'sql.png'),
+(7, 'Python', 'Le Python est un langage de programmation objet, multi-paradigme et multiplateforme favorisant la programmation structurée, fonctionnelle et objet. Il convient à tous types de développeurs.', 'python.png');
 
 -- --------------------------------------------------------
 
