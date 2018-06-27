@@ -10,9 +10,9 @@ class Maitrise{
     public function __construct($db){
         $this->db = $db;  
         // requête permettant de récupérer les maitrises d'un utilisateur
-        $this->select = $db->prepare("select u.prenom as prenom, u.nom as nom, t.libelle as techno, t.logo from maitrise m, technologie t, utilisateur u where u.email = m.idUtilisateur and t.id = m.idTechnologie and u.email = :email");
+        $this->select = $db->prepare("select u.prenom as prenom, u.nom as nom, t.libelle as techno, t.logo, t.id as id from maitrise m, technologie t, utilisateur u where u.email = m.idUtilisateur and t.id = m.idTechnologie and u.email = :email");
         $this->insert = $db->prepare("insert into maitrise(idUtilisateur, idTechnologie) values (:idUser, :idTech)");  
-        $this->selectNonMaitrise = $db->prepare("select DISTINCT u.prenom as prenom, u.nom as nom, t.libelle as techno, t.logo from maitrise m, technologie t, utilisateur u where u.email = m.idUtilisateur and t.id != m.idTechnologie and u.email = :email"); 
+        $this->selectNonMaitrise = $db->prepare("select DISTINCT u.prenom as prenom, u.nom as nom, t.libelle as techno, t.logo, t.id as id from maitrise m, technologie t, utilisateur u where u.email = m.idUtilisateur and t.id != m.idTechnologie and u.email = :email"); 
         }
 
     // fonction permettant récupérer le résultat de la requête ci-dessus
