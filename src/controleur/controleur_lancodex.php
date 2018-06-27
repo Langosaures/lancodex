@@ -35,7 +35,7 @@ $tabBool =  array();
 function actionLogo($twig, $db){
     // les réponses
     $res = new QR($db);
-    $res = $res->selectRep($_GET['id']);
+    $res = $res->selectRepLogo($_GET['id']);
 
     $bool;
     $reponse;
@@ -61,7 +61,7 @@ function actionLogo($twig, $db){
     }
 
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesLogo'=>$res));
 }
 
 
@@ -69,7 +69,7 @@ function actionLogo($twig, $db){
 function actionNom($twig, $db){
     // les réponses
     $res = new QR($db);
-    $res = $res->selectRep($_GET['id']);
+    $res = $res->selectRepNom($_GET['id']);
 
     $bool;
     $reponse;
@@ -95,7 +95,7 @@ function actionNom($twig, $db){
     }
 
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesNom'=>$res));
 
 }
 
@@ -105,7 +105,7 @@ function actionDescriptif($twig, $db){
 
     // les réponses
     $res = new QR($db);
-    $res = $res->selectRep($_GET['id']);
+    $res = $res->selectRepDesc($_GET['id']);
 
     $bool;
     $reponse;
@@ -131,7 +131,7 @@ function actionDescriptif($twig, $db){
     }
 
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesDesc'=>$res));
 }
 
 //méthode de vérification
