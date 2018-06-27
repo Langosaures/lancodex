@@ -2,7 +2,7 @@
 <div class="quizz-conteneur">
     <form action="" onsubmit="redirect(index.php?page=quizz);return false;">
         <!-- pour les logo -->
-        {% if element ==  1%} {% for e in ReponsesLogo %}
+        {% if element == 1%} {% for e in ReponsesLogo %}
         <h2>Quelle est la bonne image ?</h2>
 
         <table id="table-quizz">
@@ -22,12 +22,21 @@
         </table>
         {%endfor%}
         <!-- pour les noms -->
-        {% elseif element == 2 %} {% for e in ReponsesNom %}
-        <div>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</div>
-        {% endfor %}
+        {% elseif element == 2 %}
+        <h2>Quel est le bon nom ?</h2>
+        <ul class="quizz-list"> {% for e in ReponsesNom %}
+            <li>
+                <input type="radio" name="choix">{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}
+            </li>
+            {% endfor %}</ul>
+        <input type="submit" id="submit-quizz" value="Suivant">
+
         <!-- pour les descriptifs -->
-        {% elseif element == 3 %} {% for e in ReponsesDesc %}
-        <div>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</div>
-        {% endfor %} {% endif %}</form>
+        {% elseif element == 3 %}
+        <h2>Ce langage sert :</h2> {% for e in ReponsesDesc %}
+        <ul class="quizz-list">
+            <li><input type="radio" name="choix">{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</li>
+        </ul>
+        {% endfor %} <input type="submit" id="submit-quizz" value="Suivant"> {% endif %}</form>
 </div>
 {% endblock %} {%block dino%}{%endblock%}
