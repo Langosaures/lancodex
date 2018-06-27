@@ -20,6 +20,7 @@ class Utilisateur{
         $this->update = $db->prepare("update utilisateur set nom=:nom, prenom=:prenom where email=:email");
         $this->updateMdp = $db->prepare("update utilisateur set mdp=:mdp where email=:email");
         $this->delete = $db->prepare("delete from utilisateur where email=:id");
+
         }
     public function insert($email, $mdp, $nom, $prenom){
         $r = true;

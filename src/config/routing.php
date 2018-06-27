@@ -14,7 +14,7 @@ $lesPages['fiche']="actionLangage;0";
 $lesPages['choixtuto'] = "actionChoixtuto;0";
 $lesPages['logo'] = "actionLogo;0";
 $lesPages['nom'] = "actionNom;0";
-$lesPages['descriptif'] = "actionDescriptif;0";
+$lesPages['Descriptif'] = "actionDescriptif;0";
 
 
 if ($db!=null){

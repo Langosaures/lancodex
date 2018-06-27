@@ -11,9 +11,18 @@ function actionTechno($twig, $db){
         $Dino = new Dino($db);
         // Application de la méthode select
         $listeInd = $Dino->select();
-
-        // Envoie du résultat sur la page twig
-    echo $twig->render('lancodex.html.twig', array('listeTechno'=>$listeTech, 'listeIndices'=>$listeInd));
+        //Nouvelle objet maitrise
+        $Maitrise = new Maitrise($db);
+        if(isset($_SESSION['login'])){
+            //Récupération de toutes les maitrises de l'utilisateur
+            $listeMaitrise = $Maitrise->select($_SESSION['login']);
+            //Récupération de toutes les techno non maitrisées
+            $listeNonMaitrise = $Maitrise->selectNonMaitrise($_SESSION['login']);
+            // Envoie du résultat sur la page twig
+            echo $twig->render('lancodex.html.twig', array('listeNonMaitrise'=>$listeNonMaitrise, 'listeIndices'=>$listeInd, 'listeMaitrise'=>$listeMaitrise));
+        }else{
+             echo $twig->render('lancodex.html.twig',array('listeIndices'=>$listeInd));   
+        }
 }
 
 ?>
