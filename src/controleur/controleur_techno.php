@@ -13,7 +13,7 @@ function actionTechno($twig, $db){
         $listeInd = $Dino->select();
 
         // Envoie du résultat sur la page twig
-    echo $twig->render('lancodex.html.twig', array('listeTechno'=>$listeTech, 'listeIndices'=>$listeInd));
+    echo $twig->render('quizz.html.twig', array('listeTechno'=>$listeTech, 'listeIndices'=>$listeInd));
 }
 
 ?>

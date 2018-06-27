@@ -17,13 +17,8 @@ function actionLangage($twig, $db){
     $resultat[1] = $listeQR[3]; // nom
     $resultat[2] = $listeQR[4]; // descriptif
 
-     // Création d'une instance de la classe FausseRep
-     $FausseRep = new QR($db);
-     // Récupération les fausses réponses par question
-     $listeFausseRep = $FausseRep->selectFausseRep($_GET['id']);
-
     // Envoie du résultat sur la page twig
-    echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'listeFausseRep'=>$listeFausseRep));
+    echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR));
 }
 
 
@@ -38,8 +33,13 @@ $tabBool =  array();
 
 //méthode du logo
 function actionLogo($twig, $db){
+    // les réponses
+    $res = new QR($db);
+    $res = $res->selectRep($_GET['id']);
+
     $bool;
     $reponse;
+    $element = $_GET['element'];
     // si la personne a envoyé sa réponse
     if (isset($_POST['formulaireLogo'])){
         //Récupération du logo choisi
@@ -61,14 +61,19 @@ function actionLogo($twig, $db){
     }
 
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig');
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res));
 }
 
 
 //méthode du nom
 function actionNom($twig, $db){
+    // les réponses
+    $res = new QR($db);
+    $res = $res->selectRep($_GET['id']);
+
     $bool;
     $reponse;
+    $element = $_GET['element'];
     // si la personne a envoyé sa réponse
     if (isset($_POST['formulaireNom'])){
     //Récupération du Nom choisi
@@ -90,14 +95,20 @@ function actionNom($twig, $db){
     }
 
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig');
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res));
 }
 
 
 //méthode du descriptif
 function actionDescriptif($twig, $db){
+
+    // les réponses
+    $res = new QR($db);
+    $res = $res->selectRep($_GET['id']);
+
     $bool;
     $reponse;
+    $element = $_GET['element'];
     // si la personne a envoyé sa réponse
     if (isset($_POST['formulaireDescriptif'])){
     //Récupération du Descriptif choisi
@@ -117,9 +128,9 @@ function actionDescriptif($twig, $db){
     $tabBool[2] = $bool;
     $tabReponse[2] = $reponse;
     }
-    
+
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig');
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'Reponses'=>$res));
 }
 
 //méthode de vérification

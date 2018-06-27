@@ -1,4 +1,25 @@
-{% extends "base.html.twig" %}{% block title %} {{ parent() }} Quizz {% endblock %} {% block contenu %} {% if session.login is not defined %}
+{% extends "base.html.twig" %}{% block title %}{{ parent() }} Quizz {% endblock %} {% block contenu %} {% if session.login is defined %}
+
+{% if element == 1 %}
+
+        {% for e in Reponses %}
+            <img src="images/{{e.logo}}" alt="{{e.logo}}"/>
+        {% endfor %}
+
+    {% elseif element == 2 %}
+
+        {% for e in Reponses %}
+            <div>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</div>
+        {% endfor %}
+
+    {% elseif element == 3 %}
+
+        {% for e in Reponses %}
+            <div>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</div>
+        {% endfor %}
+
+{% endif %}
+
 
 {% endif %} 
 {% endblock %}
