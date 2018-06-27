@@ -35,33 +35,9 @@ $resultat = array();
 $tabReponse = array();
 $tabBool =  array();
 
-// methode de choix des actions
-function actionChoix(){
-    //Récupération de l'id de l'élément
-    $element = $_GET['element'];
-
-    $res ;
-
-    switch ($element) {
-        //Si l'id est à 1 -> actionLogo
-        case 1:
-            $res = actionLogo();
-            break;
-        //Si l'id est à 2 -> actionNom
-        case 2:
-            $res = actionNom();
-            break;
-        //Si l'id est à 3 -> actionDescriptif
-        case 3: 
-            $res = actionDescriptif();
-            break;
-    }
-
-    return $res;
-}
 
 //méthode du logo
-function actionLogo(){
+function actionLogo($twig, $db){
     $bool;
     $reponse;
     //Récupération du logo choisi
@@ -80,11 +56,14 @@ function actionLogo(){
     //Ajout des valeurs dans le tableau
     $tabBool[0] = $bool;
     $tabReponse[0] = $reponse;
+
+    // Envoie du résultat sur la page twig
+    echo $twig->render('quizz.html.twig');
 }
 
 
 //méthode du nom
-function actionNom(){
+function actionNom($twig, $db){
     $bool;
     $reponse;
     //Récupération du Nom choisi
@@ -103,11 +82,14 @@ function actionNom(){
     //Ajout des valeurs dans le tableau
     $tabBool[1] = $bool;
     $tabReponse[1] = $reponse;
+
+    // Envoie du résultat sur la page twig
+    echo $twig->render('quizz.html.twig');
 }
 
 
 //méthode du descriptif
-function actionDescriptif(){
+function actionDescriptif($twig, $db){
     $bool;
     $reponse;
     //Récupération du Descriptif choisi
@@ -126,6 +108,9 @@ function actionDescriptif(){
     //Ajout des valeurs dans le tableau
     $tabBool[2] = $bool;
     $tabReponse[2] = $reponse;
+
+    // Envoie du résultat sur la page twig
+    echo $twig->render('quizz.html.twig');
 }
 
 //méthode de vérification
