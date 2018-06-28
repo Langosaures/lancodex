@@ -32,8 +32,7 @@ function resultat($db) {
     $resultat[2] = $listeQR[4]; // descriptif
 
     return $resultat;
-}
-
+} 
 
 //méthodes du quizz
 
@@ -107,7 +106,7 @@ function actionNom($twig, $db){
         //Ajout des valeurs dans le tableau
         $tabBool[1] = $bool;
         $tabReponse[1] = $reponse;
-
+        actionDescriptif($twig, $db);
     }
 
     // Envoie du résultat sur la page twig
