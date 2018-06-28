@@ -11,9 +11,12 @@ function actionLangage($twig, $db){ // Vérif Ok
     $QR = new QR($db);
     // Récupération de la question avec sa bonne réponse et son logo
     $listeQR = $QR->select($_GET['id']);
-    
+    //Création objet Maitrise et recup des maitrises de l'utilisateur
+    $Maitrise = new Maitrise($db);
+    $listeMaitrise = $Maitrise->select($_SESSION['login']);
+
     // Envoie du résultat sur la page twig
-    echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR));
+    echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'listeMaitrise'=>$listeMaitrise));
 }
 
 // méthode pour obtenir le tableau avec résultats
