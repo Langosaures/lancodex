@@ -177,8 +177,23 @@ div.gallery img {
     height: auto;
 }
 
+.resultat-quizz-conteneur-ok>a.suivant-quizz-resultat{
+    font-family: 'Exo-Medium';
+    background: rgba(40,84,42,0.9);
+    color: white;
+    margin: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    transition: 0.3s;
+}
+
+.resultat-quizz-conteneur-ok>a.suivant-quizz-resultat:hover{
+    background: rgba(40,84,42,0.5);
+}
+
 .resultat-quizz-conteneur-nop{
-        background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.5);
     color: rgba(90,44,42,0.7);
     padding: 2vw;
     margin: 10vw;
@@ -268,6 +283,7 @@ td:nth-child(2) {
 }
 
 .blur {
+    cursor: help;
     filter: blur(5px);
 }
 
@@ -336,6 +352,10 @@ table img {
     width: auto;
 }
 
+.case-description{
+    cursor: default;
+}
+
 .arrow-back {
     position: fixed;
     top: 35vh;
@@ -384,6 +404,7 @@ table img {
 /* Permet de rendre une image entièrement noire */
 
 .locked {
+    cursor: help;
     filter: brightness(00%);
     -webkit-filter: brightness(00%);
     -moz-filter: brightness(00%);
@@ -669,6 +690,22 @@ a.lien {
     font-family: 'Exo-Thin';
     letter-spacing: 12px;
     transition: all 0.5s ease-in-out
+}
+
+#demarrer-quizz{
+    font-family: 'Exo-Medium';
+    background: rgba(40,84,42,0.9);
+    color: white;
+    margin-left: 35vw;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    transition: 0.3s;
+}
+
+#demarrer-quizz:hover{
+    font-family: 'Exo-Medium';
+    background: rgba(40,84,42,0.7);
 }
 
 .main-content {
