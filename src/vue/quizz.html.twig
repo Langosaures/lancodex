@@ -1,42 +1,46 @@
  {% extends "base.html.twig" %}{% block title %} {{ parent() }} Quizz {% endblock %} {% block contenu %}
 <div class="quizz-conteneur">
-    <form action="" onsubmit="redirect(index.php?page=quizz);return false;">
+    <form action="index.php?page=fiche&id={{id}}" method="post" id="quizz">
         <!-- pour les logo -->
-        {% if element == 1%} {% for e in ReponsesLogo %}
+        {% if element == 1 %} {% for e in ReponsesLogo %}
         <h2>Quelle est la bonne image ?</h2>
 
         <table id="table-quizz">
             <tr class="quizz">
                 <td>
-                    <input name="choix" type="radio"><img class="satur1" src="images/{{e.logo}}" alt=""></td>
+                    <input name="choix" type="radio" value="{{e.logo}}satur1"><img class="satur1" src="images/{{e.logo}}" alt=""></td>
                 <td>
-                    <input name="choix" type="radio"><img class="satur2" src="images/{{e.logo}}" alt=""></td>
+                    <input name="choix" type="radio" value="{{e.logo}}satur2"><img class="satur2" src="images/{{e.logo}}" alt=""></td>
             </tr>
             <tr class="quizz">
                 <td>
-                    <input name="choix" type="radio"><img class="satur3" src="images/{{e.logo}}" alt=""></td>
+                    <input name="choix" type="radio" value="{{e.logo}}satur3"><img class="satur3" src="images/{{e.logo}}" alt=""></td>
                 <td>
-                    <input name="choix" type="radio"><img src="images/{{e.logo}}" alt=""></td>
+                    <input name="choix" type="radio" value="{{e.logo}}"><img src="images/{{e.logo}}" alt=""></td>
             </tr>
-            <input type="submit" id="submit-quizz" value="Suivant">
+            <button type="submit" id='submit-quizz' name="submit-quizz" form="quizz">Suivant</button>
         </table>
-        {%endfor%}
+        {% endfor %}
         <!-- pour les noms -->
         {% elseif element == 2 %}
         <h2>Quel est le bon nom ?</h2>
         <ul class="quizz-list"> {% for e in ReponsesNom %}
             <li>
-                <input type="radio" name="choix">{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}
+            {{ReponsesLogo.tech}}
+                <input type="radio" name="choix" value ="{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}"/>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}
             </li>
             {% endfor %}</ul>
-        <input type="submit" id="submit-quizz" value="Suivant">
+        <button type="submit" id='submit-quizz' name="submit-quizz">Suivant</button>
 
         <!-- pour les descriptifs -->
         {% elseif element == 3 %}
         <h2>Ce langage sert :</h2> {% for e in ReponsesDesc %}
         <ul class="quizz-list">
-            <li><input type="radio" name="choix">{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</li>
+            <li><input type="radio" name="choix" value="{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}">{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</li>
         </ul>
-        {% endfor %} <input type="submit" id="submit-quizz" value="Suivant"> {% endif %}</form>
+        {% endfor %}
+            <button type="submit" id='submit-quizz' name="submit-quizz">Suivant</button>
+        {% endif %}
+    </form>
 </div>
-{% endblock %} {%block dino%}{%endblock%}
+{% endblock %} {% block dino %}{% endblock %}
