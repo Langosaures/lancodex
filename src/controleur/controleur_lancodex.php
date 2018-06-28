@@ -1,6 +1,6 @@
 <?php
 function actionLangage($twig, $db){ // Vérif Ok
-    $langage = new Langage($db);
+    $langage  = new Langage($db);
     $leLangage = $langage->select($_GET['id']);
     // Création d'une instance de la classe dino
     $Dino = new Dino($db);
