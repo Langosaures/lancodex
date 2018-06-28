@@ -6,4 +6,5 @@
   require_once 'class_maitrise.php';
   require_once 'class_langage.php';
   require_once 'class_cours.php';
+  require_once 'class_historique.php';
 ?>
