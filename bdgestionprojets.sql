@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2018 at 06:46 PM
+-- Generation Time: Jun 28, 2018 at 04:05 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -46,18 +46,6 @@ INSERT INTO `cours` (`id`, `libelle`, `contenu`) VALUES
 (5, 'L\'Angular', '<p>\r\nAngularJS est né en 2009 dans les locaux de Google. Deux développeurs du nom de Brad Green et Shyam Seshadri commençaient sérieusement à déprimer devant leur projet appelé \"Google Feedback\". Une immense frustration les envahissait au fur et à mesure que leur code grandissait. Celui-ci comptait approximativement 17 000 lignes à ce moment-là. Autant de lignes de pur front-end  qui sont intestables et donc difficilement maintenables.</p>\r\n\r\n<p>C\'est à ce moment-là que Shyam Seshadri proposa de redévelopper entièrement la solution avec un framework fait maison. Au bout de trois semaines, l\'application ne comptait plus que 1 500 lignes de codes, parfaitement testées.</p>\r\n\r\n<p>À compter de ce jour, les autres développeurs de l\'équipe ont décidé de prendre en main ce framework et de travailler avec au quotidien. Une histoire est née, l\'histoire d\'un framework que l\'on nommera AngularJS.</p>\r\n<p>Le <b>logo</b> de l\'Angular est un hexagon rouge avec un \'A\' gravé dessus.</p>'),
 (6, 'Le Python', '<p>\r\nLe Langage Python est apparu en 1991 grâce à Guido van Rossum. Son nom n\'est pas tiré de celui du serpent mais bien de la fameuse troupe de comiques \"Monty Python\" ! Par ailleurs, son créateur a fondé l\'organisation <b>Python Software Foundation</b> en 2001, une association a but non lucratif leur rendant hommage.\r\n</p>\r\n\r\n<p>\r\nCe langage interprété s\'avère être puissant, il peut être utilisé pour effectuer de petits scripts tout comme de gros projets.\r\n</p>\r\n\r\n<p>\r\nNous pouvons communiquer avec notre système grâce à celui-ci, mais aussi créer des interfaces graphiques, faire passer des informations dans un réseau... Les possibilités sont infinies !\r\n</p>\r\n\r\n<P>Certains sites très connus ont été conçus à l\'aide de ce langage tel que :</p>\r\n<ul>\r\n<li>Pinterest</li>\r\n<li>Reddit</li>\r\n<li>Spotify</li>\r\n<li>Youtube</li>\r\n<li>Dropbox</li>\r\n</ul>\r\n<p>\r\nSon <b>logo</b> représente deux python tel le Yin et le Yang mais avec des teins jaune et bleu.\r\n</p>'),
 (7, 'Le SQL', '<p>\r\nLe Structured Query Language, plus connu sous le diminutif \'SQL est né en 1974 avant d\'être normalisé en 1986. Il a été développé par IBM, plus particulièrement par Donald D et Raymond Boyce.\r\n</p>\r\n\r\n<p>\r\nCe langage permet d\'envoyer des requêtes pour communiquer avec une base de données.\r\n</p>\r\n<p>\r\nOn peut donc se servir de langages tiers tel que le PHP pour traiter le résultat( des requêtes\r\n</p>\r\n<p>\r\n Son <b>logo</b> est représenté par un cylindre de couleur bleu/vert.\r\n</p>');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `historique`
---
-
-CREATE TABLE `historique` (
-  `id` int(11) NOT NULL,
-  `User` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `Question` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -318,14 +306,6 @@ ALTER TABLE `cours`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `historique`
---
-ALTER TABLE `historique`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `User` (`User`),
-  ADD KEY `Question` (`Question`);
-
---
 -- Indexes for table `indice`
 --
 ALTER TABLE `indice`
@@ -377,12 +357,6 @@ ALTER TABLE `cours`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `historique`
---
-ALTER TABLE `historique`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `indice`
 --
 ALTER TABLE `indice`
@@ -409,13 +383,6 @@ ALTER TABLE `technologie`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `historique`
---
-ALTER TABLE `historique`
-  ADD CONSTRAINT `historique_ibfk_1` FOREIGN KEY (`Question`) REFERENCES `question` (`id`),
-  ADD CONSTRAINT `historique_ibfk_2` FOREIGN KEY (`User`) REFERENCES `utilisateur` (`email`);
 
 --
 -- Constraints for table `indice`
