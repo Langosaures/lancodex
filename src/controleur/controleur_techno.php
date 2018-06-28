@@ -1,7 +1,6 @@
 <?php
 
 function actionTechno($twig, $db){
-   
         // Création d'une instance de la classe Techno
         $Techno = new Techno($db);
         // Application de la méthode select

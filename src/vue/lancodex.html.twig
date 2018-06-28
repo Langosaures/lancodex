@@ -7,7 +7,8 @@
         <button class="btn btn-lg  btn-block" type="submit" name="btConnecter">Se connecter</button>
         <a class="go-back-arrow" href="index.php?page=inscrire" id="inscription-link">S'inscrire <i class="glyphicon glyphicon-circle-arrow-right"></i></a>
     </form>
-</div>{% else %}
+</div>{%else%}
+   <div class="conteneur-lanco">
     <h2>Mon lancodex</h2>
     <a class="arrow-back" href="index.php"><i class="glyphicon glyphicon-circle-arrow-left"> </i></a>
     {% for r in listeMaitrise %}
@@ -16,5 +17,5 @@
    {% for e in listeNonMaitrise %}
         <a href="index.php?page=fiche&id={{e.id}}">  <div class="gallery"><img class="elementLanco locked" id="{{e.id}}" src="images/{{e.logo}}" alt="{{e.libelle}}"></div></a>
     {% endfor %}
-
+</div>
 {% endif %} {% endblock %}
