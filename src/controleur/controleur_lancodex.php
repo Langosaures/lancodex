@@ -116,6 +116,9 @@ function actionDescriptif($twig, $db){
             $reponse['msg'] =$_POST["choix"];
             if($reponse['msg']==$laBonneReponse[2][0]){
                 $reponse=1;
+                //insertion de la nouvelle maitrise
+                $insertMaitrise = new Maitrise($db);
+                $exec = $insertMaitrise->insert($_SESSION['login'], $_GET['id']);
             }else{
                 $reponse=0;
             }
