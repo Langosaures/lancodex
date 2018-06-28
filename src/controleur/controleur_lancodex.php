@@ -19,9 +19,11 @@ function actionLangage($twig, $db){
 
     //Création objet Maitrise et recup des maitrises de l'utilisateur
     $Maitrise = new Maitrise($db);
-    $listeMaitrise = $Maitrise->select($_SESSION['login']);
+    $listeMaitrise = $Maitrise->selectUneMaitrise($_SESSION['login'], $_GET['id']);
+    $id = $listeMaitrise['id'];
+    var_dump($id);
     // Envoie du résultat sur la page twig
-    echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'listeMaitrise'=>$listeMaitrise));
+    echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'UneMaitrise'=>$listeMaitrise, "idTechno"=>$id));
 }
 
 
