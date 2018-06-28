@@ -36,10 +36,6 @@ function resultat($db) {
 
 //méthodes du quizz
 
-$tabReponse = array();
-$tabBool =  array();
-
-
 //méthode du logo
 function actionLogo($twig, $db){
     $langage = new Langage($db);
@@ -128,40 +124,5 @@ function actionDescriptif($twig, $db){
     echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesDesc'=>$res,'langage'=>$leLangage,'reponse'=>$reponse));
 }
 
-//méthode de vérification
-function actionCheck(){
-    $i;
-    $val ;
-    // Parcours du tableau bool
-    for ($i = 0; sizeof($tabBool); $i++){
-        // Si la réponse est bonne
-        if ($tabReponse[$i] == $resultat[$i]){
-            // val est à true
-            $val = true;
-        } else { // sinon
-            // val est à false
-            $val = false;
-            // on retourne val
-            return $val;
-        }
-    }
-    //On renvoie val = true
-    return $val;
-}
 
-//méthode d'insertion d'une maitrise
-function actionInsertMaitrise(){
-   // Initialisation d'une variable égale à la méthode check
-   $res = actionCheck(); // on obtient une valeur booléenne
-   // Si cette variable est à true
-   if ($res == true){
-        // On fait une insertion avec comme paramètre les cases du tableau réponse
-        $maitrise = new Maitrise($db); 
-        $exec = $maitrise->insert($_SESSION['login'], $_GET['id']);
-   }
-   // On vide les trois tableaux
-   $resultat = array();
-   $tabReponse = array();
-   $tabBool = array();
-}
 ?>
