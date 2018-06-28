@@ -57,9 +57,12 @@ h2 {
 }
 
 /* Page lancodex */
+div.gallery:nth-child(1){
+    margin-left: 5vw;
+}
 
 div.gallery {
-    margin: 15px;
+    margin: 0.5vw 0vw 0.5vw 1.2vw;
     border: 1px solid #ccc;
     float: left;
     height: 10em;
@@ -156,6 +159,52 @@ div.gallery img {
 .satur3 {
     filter: hue-rotate(300deg);
 }
+
+/* Page du listing des cours */
+
+.conteneurCours {
+    margin-left: 13vw;
+    margin-right: 13vw;
+    width: auto;
+    padding: 10px;
+    background: rgba(68, 68, 68, 0.1);
+    font-family: 'Exo-Regular';
+    text-align: justify;
+}
+
+.conteneurCours h2 {
+    font-family: 'Exo-Medium'
+}
+
+.conteneurCoursListe {
+    margin-left: 15vw;
+}
+
+.listeCours {
+    list-style: none;
+    margin-left: 5vw;
+}
+
+.listeCours a:hover {
+    text-decoration: none;
+}
+
+.listeCours li {
+    background: rgba(68, 68, 68, 0.5);
+    border-radius: 0px 5px 5px 0px;
+    color: white;
+    padding: 1vh;
+    text-align: center;
+    width: 50%;
+    margin-bottom: 1vh;
+    transition: 0.3s;
+}
+
+.listeCours li:hover {
+    background: rgba(68, 68, 68, 0.6);
+    width: 55%;
+}
+
 
 /* Page description d'un langage (fiche.html) */
 
@@ -410,7 +459,7 @@ a.lien {
 .dino {
     position: fixed;
     bottom: 0;
-    left: 5em;
+    left: 5vw;
 }
 
 .dino-message {
@@ -419,7 +468,7 @@ a.lien {
 
 .speech-bubble {
     position: fixed;
-    bottom: 7em;
+    bottom:4.5vw;
     color: #f2f2f2;
     font-size: 16px;
     left: 18vw;
