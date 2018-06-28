@@ -1,0 +1,61 @@
+{% extends "base.html.twig" %}{% block title %} {{ parent() }} Quizz {% endblock %} {% block contenu %}
+<div class="quizz-conteneur">
+    {%for l in langage %}
+    <!-- pour les logo -->
+    {% if element == 1%}
+    <form action="index.php?page=logo&id={{l.id}}&element={{4}}" method="post" enctype="application/x-www-form-urlencoded">
+        <h2>Quelle est la bonne image ?</h2>
+        {% for e in ReponsesLogo %}
+        <table id="table-quizz">
+            <tr class="quizz">
+                <td>
+                    <input name="choix" type="radio" value="3" required><img class="satur1" src="images/{{e.logo}}" alt=""></td>
+                <td>
+                    <input name="choix" type="radio" value="2"><img class="satur2" src="images/{{e.logo}}" alt=""></td>
+            </tr>
+            <tr class="quizz">
+                <td>
+                    <input name="choix" type="radio" value="1"><img class="satur3" src="images/{{e.logo}}" alt=""></td>
+                <td>
+                    <input name="choix" type="radio" value="{{e.logo}}"><img src="images/{{e.logo}}" alt=""></td>
+            </tr>
+        </table>
+        <button id="submit-quizz" type="submit" name="btAjouter">Suivant</button> {%endfor%}
+        <!-- pour les noms -->
+        {% elseif element == 2 %}
+        <form action="index.php?page=nom&id={{l.id}}&element={{4}}" method="post" enctype="application/x-www-form-urlencoded">
+            <h2>Quel est le bon nom ?</h2>
+            <ul class="quizz-list"> {% for e in ReponsesNom %}
+                <li>
+                    <input type="radio" name="choix" value="{{e.reponse}}" required>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}
+                </li>
+                {% endfor %}</ul>
+            <button id="submit-quizz" type="submit" name="btAjouter">Suivant</button>
+            <!-- pour les descriptifs -->
+            {% elseif element == 3 %}
+            <form action="index.php?page=descriptif&id={{l.id}}&element={{4}}" method="post" enctype="application/x-www-form-urlencoded">
+                <h2>Ce langage sert :</h2>
+                <ul class="quizz-list">
+                    {% for e in ReponsesDesc %}
+                    <li><input type="radio" id="choix" name="choix" value="{{e.reponse}}" required>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}</li>
+                    {%endfor%}
+                </ul>
+                <button id="submit-quizz" type="submit" name="btAjouter">Suivant</button>
+            </form>
+            {%elseif element == 4%}
+            {%if reponse==1%}
+            <h2>Résultat :</h2>
+            <div class="resultat-quizz-conteneur-ok">
+                <h1 class="resultat-quizz">You got it !</h1>
+                <p>Vous avez trouvé la bonne réponse à cette question.</p><br>
+                <a href="index.php?page={{redirect}}&id={{l.id}}{{num}}" class="suivant-quizz-resultat">Suivant</a>
+            </div>
+            {%else%}
+            <h2>Résultat :</h2>
+            <div class="resultat-quizz-conteneur-nop">
+                <h1 class="resultat-quizz">Huh, nope.</h1>
+                <p>Vous n'avez pas eu la bonne réponse à cette question, vous devriez peut-être consulter les cours avant de retenter votre chance !</p><br>
+                <a href="index.php?page=lancodex" class="suivant-quizz-resultat">Suivant</a>
+            </div>
+            {%endif%} {% endif %} {% endfor %}
+{% endblock %} {% block dino %} {% endblock %}
