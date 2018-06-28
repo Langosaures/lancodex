@@ -15,6 +15,8 @@ $lesPages['choixtuto'] = "actionChoixtuto;0";
 $lesPages['logo'] = "actionLogo;0";
 $lesPages['nom'] = "actionNom;0";
 $lesPages['descriptif'] = "actionDescriptif;0";
+$lesPages['cours'] = "actionListeCours;0";
+$lesPages['leCours'] = "actionLeCours;0";
 
 
 if ($db!=null){
