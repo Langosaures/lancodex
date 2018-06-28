@@ -43,75 +43,60 @@ $tabBool =  array();
 
 //méthode du logo
 function actionLogo($twig, $db){
-    // les réponses
+    $langage = new Langage($db);
+    $leLangage = $langage->select($_GET['id']);
+    $reponse['msg']="null";
+    $laBonneReponse = new QR($db);
+    $laBonneReponse = $laBonneReponse->selectDescTechno($_GET['id']);
     $res = new QR($db);
     $res = $res->selectRepLogo($_GET['id']);
-    $resultat =resultat($db);
-    $bool;
-    $reponse;
     $element = $_GET['element'];
-
     // si la personne a envoyé sa réponse
-    
-    if(isset($_POST['submit-quizz'])){
-        //Récupération du logo choisi
-        $element = $_POST['choix']; 
-        echo '<script type="text/javascript">alert("',$element,'");</script>';
-        //Vérifier que le logo est bon
-        //Si bon, bool = true et reponse = logo
-        if ($element == $resultat[0]) {
-            $bool = true;
-            $reponse = $element;
+    if (isset($_POST['btAjouter'])){
+        var_dump($laBonneReponse[1][0]);
+          if (empty($_POST["choix"])) {
+            $reponse['msg'] = "Aucune réponse sélectionné";
+        } else {
+            $reponse['msg'] =$_POST["choix"];
+            if($reponse['msg']==$laBonneReponse[1][0]){
+                var_dump($laBonneReponse[1][0]);
+                $reponse=1;
+            }else{
+                var_dump($laBonneReponse[1][0]);
+                $reponse=0;
             }
         }
-        //Sinon bool = false et reponse = logo
-        else {
-            $bool = false;
-            $reponse = $element;
-        }
-
-        //Ajout des valeurs dans le tableau
-        $tabBool[0] = $bool;
-        $tabReponse[0] = $reponse;
-
-        
+    }
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesLogo'=>$res, 'id'=>$_GET['id']));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesLogo'=>$res,'langage'=>$leLangage,'reponse'=>$reponse,'id'=>$_GET['id']));
 }
 
 
 //méthode du nom
 function actionNom($twig, $db){
-    // les réponses
+    $langage = new Langage($db);
+    $leLangage = $langage->select($_GET['id']);
+    $reponse['msg']="null";
+    $laBonneReponse = new QR($db);
+    $laBonneReponse = $laBonneReponse->selectDescTechno($_GET['id']);
     $res = new QR($db);
     $res = $res->selectRepNom($_GET['id']);
-    $resultat =resultat($db);
-    $bool;
-    $reponse;
     $element = $_GET['element'];
     // si la personne a envoyé sa réponse
-    if (isset($_POST['submit-quizz'])){
-        //Récupération du Nom choisi
-        $element = $_GET['choix'];
-        //Vérifier que le Nom est bon
-        //Si bon, bool = true et reponse = Nom
-        if ($element == $resultat[1]) {
-            $bool = true;
-            $reponse = $element;
+    if (isset($_POST['btAjouter'])){
+          if (empty($_POST["choix"])) {
+            $reponse['msg'] = "Aucune réponse sélectionné";
+        } else {
+            $reponse['msg'] =$_POST["choix"];
+            if($reponse['msg']==$laBonneReponse[0][0]){
+                $reponse=1;
+            }else{
+                $reponse=0;
+            }
         }
-        //Sinon bool = false et reponse = Nom
-        else {
-            $bool = false;
-            $reponse = $element;
-            } 
-        //Ajout des valeurs dans le tableau
-        $tabBool[1] = $bool;
-        $tabReponse[1] = $reponse;
-
     }
-
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesNom'=>$res));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesNom'=>$res,'langage'=>$leLangage,'reponse'=>$reponse));
 
 }
 
@@ -133,18 +118,12 @@ function actionDescriptif($twig, $db){
             $reponse['msg'] = "Aucune réponse sélectionné";
         } else {
             $reponse['msg'] =$_POST["choix"];
-            var_dump($element);
             if($reponse['msg']==$laBonneReponse[2][0]){
-                var_dump($reponse['msg']);
-                var_dump($laBonneReponse[2][0]);
-                var_dump('YES');
+                $reponse=1;
             }else{
-                var_dump($reponse['msg']);
-                var_dump($laBonneReponse[2][0]);
-                var_dump('NOP');
+                $reponse=0;
             }
         }
-        
     }
     // Envoie du résultat sur la page twig
     echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesDesc'=>$res,'langage'=>$leLangage,'reponse'=>$reponse));
