@@ -67,7 +67,6 @@ function actionNom($twig, $db){
     // les réponses
     $res = new QR($db);
     $res = $res->selectRepNom($_GET['id']);
-
     $bool;
     $reponse;
     $element = $_GET['element'];
@@ -99,36 +98,31 @@ function actionNom($twig, $db){
 
 //méthode du descriptif
 function actionDescriptif($twig, $db){
-
     // les réponses
+    $reponse['msg']="null";
     $res = new QR($db);
     $res = $res->selectRepDesc($_GET['id']);
-
-    $bool;
-    $reponse;
+    $langage = new Langage($db);
+    $leLangage = $langage->select($_GET['id']);
     $element = $_GET['element'];
+    $reponse = array();
     // si la personne a envoyé sa réponse
-    if (isset($_POST['formulaireDescriptif'])){
-        //Récupération du Descriptif choisi
-        $element = $_GET['formDesc'];
-        //Vérifier que le Descriptif est bon
-        //Si bon, bool = true et reponse = Descriptif
-        if ($element == $resultat[2]) {
-            $bool = true;
-            $reponse = $element;
+    if (isset($_POST['btAjouter'])){
+          if (empty($_POST["choix"])) {
+            $reponse['msg'] = "Aucune réponse sélectionné";
+        } else {
+            $reponse['msg'] =$_POST["choix"];
+            var_dump($element);
+            if($reponse['msg']===$element){
+                var_dump('YES');
+            }else{
+                var_dump('NOP');
+            }
         }
-        //Sinon bool = false et reponse = Descriptif
-        else {
-            $bool = false;
-            $reponse = $element;
-        }
-        //Ajout des valeurs dans le tableau
-        $tabBool[2] = $bool;
-        $tabReponse[2] = $reponse;
+        
     }
-
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesDesc'=>$res));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesDesc'=>$res,'langage'=>$leLangage,'reponse'=>$reponse));
 }
 
 //méthode de vérification
