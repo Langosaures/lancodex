@@ -21,7 +21,6 @@ function actionLangage($twig, $db){
     $Maitrise = new Maitrise($db);
     $listeMaitrise = $Maitrise->selectUneMaitrise($_SESSION['login'], $_GET['id']);
     $id = $listeMaitrise['id'];
-    var_dump($id);
     // Envoie du résultat sur la page twig
     echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'UneMaitrise'=>$listeMaitrise, "idTechno"=>$id));
 }
