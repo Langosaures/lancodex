@@ -32,8 +32,7 @@ function resultat($db) {
     $resultat[2] = $listeQR[5]; // descriptif
 
     return $resultat;
-}
-
+} 
 
 //méthodes du quizz
 
@@ -53,16 +52,13 @@ function actionLogo($twig, $db){
     $element = $_GET['element'];
     // si la personne a envoyé sa réponse
     if (isset($_POST['btAjouter'])){
-        var_dump($laBonneReponse[1][0]);
           if (empty($_POST["choix"])) {
             $reponse['msg'] = "Aucune réponse sélectionné";
         } else {
             $reponse['msg'] =$_POST["choix"];
             if($reponse['msg']==$laBonneReponse[1][0]){
-                var_dump($laBonneReponse[1][0]);
                 $reponse=1;
             }else{
-                var_dump($laBonneReponse[1][0]);
                 $reponse=0;
             }
         }
