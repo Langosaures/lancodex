@@ -23,14 +23,14 @@ class Historique{
 }
 
  //fonction permettant l'insertion d'un historique
- public function insert($idUser, $idQuestion){
-    $r = true;
-    $this->insert->execute(array(':idUser'=>$idUser, ':idQuestion'=>$idTech));
-    if ($this->insert->errorCode()!=0){
-         print_r($this->insert->errorInfo());  
-         $r=false;
+    function insert($idUser, $idQuestion){
+        $r = true;
+        $this->insert->execute(array(':idUser'=>$idUser, ':idQuestion'=>$idTech));
+        if ($this->insert->errorCode()!=0){
+            print_r($this->insert->errorInfo());  
+            $r=false;
+        }
+        return $r;
     }
-    return $r;
-}
 
 ?>
