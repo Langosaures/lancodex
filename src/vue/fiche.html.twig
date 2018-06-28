@@ -17,14 +17,11 @@
         <th class="header-description">Description :</th>
     </tr>
     <tr>
-      {% for r in listeMaitrise %}
-        {% if e.id == r.id %}
+
             <td class="case-description locked"><a href="index.php?page=logo&id={{e.id}}&element=1"><img src="images/{{e.logo}}" alt="{{e.logo}}"></a></td>
             <td class="case-description" id="libelle-desc"><a href="index.php?page=nom&id={{e.id}}&element=2">{{e.libelle}}</a></td>
             <td class="case-description"><a href="index.php?page=descriptif&id={{e.id}}&element=3">{{e.description | convert_encoding('UTF-8', 'ISO-8859-1')}}</a></td>
-    
-        {% endif %}
-     {% endfor %}
+
     </tr>
 </table>
 {% endfor %}

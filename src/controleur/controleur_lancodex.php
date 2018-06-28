@@ -21,7 +21,7 @@ function actionLangage($twig, $db){
     $Maitrise = new Maitrise($db);
     $listeMaitrise = $Maitrise->select($_SESSION['login']);
 
-    var_dump($listeMaitrise);
+    var_dump($leLangage);
     // Envoie du résultat sur la page twig
     echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'listeMaitrise'=>$listeMaitrise));
 }
