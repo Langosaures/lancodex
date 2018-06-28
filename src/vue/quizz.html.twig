@@ -1,6 +1,6 @@
  {% extends "base.html.twig" %}{% block title %} {{ parent() }} Quizz {% endblock %} {% block contenu %}
 <div class="quizz-conteneur">
-    <form action="index.php?page=cours" method="post">
+    <form action="" onsubmit="redirect(index.php?page=quizz);return false;">
         <!-- pour les logo -->
         {% if element == 1%} {% for e in ReponsesLogo %}
         <h2>Quelle est la bonne image ?</h2>
