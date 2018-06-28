@@ -46,6 +46,8 @@ function actionLogo($twig, $db){
     $res = new QR($db);
     $res = $res->selectRepLogo($_GET['id']);
     $element = $_GET['element'];
+    $redirect = "";
+    $num = 0;
     // si la personne a envoyé sa réponse
     if (isset($_POST['btAjouter'])){
           if (empty($_POST["choix"])) {
@@ -54,13 +56,16 @@ function actionLogo($twig, $db){
             $reponse['msg'] =$_POST["choix"];
             if($reponse['msg']==$laBonneReponse[1][0]){
                 $reponse=1;
+                $redirect = "nom";
+                $num = "&element=2";
             }else{
                 $reponse=0;
             }
         }
     }
+   
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesLogo'=>$res,'langage'=>$leLangage,'reponse'=>$reponse,'id'=>$_GET['id']));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesLogo'=>$res,'langage'=>$leLangage,'reponse'=>$reponse,'id'=>$_GET['id'], 'redirect'=>$redirect, 'num'=>$num));
 }
 
 
@@ -74,6 +79,8 @@ function actionNom($twig, $db){
     $res = new QR($db);
     $res = $res->selectRepNom($_GET['id']);
     $element = $_GET['element'];
+    $redirect = "";
+    $num = 0;
     // si la personne a envoyé sa réponse
     if (isset($_POST['btAjouter'])){
           if (empty($_POST["choix"])) {
@@ -82,13 +89,15 @@ function actionNom($twig, $db){
             $reponse['msg'] =$_POST["choix"];
             if($reponse['msg']==$laBonneReponse[0][0]){
                 $reponse=1;
+                $redirect = "descriptif";
+                $num ="&element=3";
             }else{
                 $reponse=0;
             }
         }
     }
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesNom'=>$res,'langage'=>$leLangage,'reponse'=>$reponse));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesNom'=>$res,'langage'=>$leLangage,'reponse'=>$reponse, 'redirect'=>$redirect, 'num'=>$num));
 
 }
 
@@ -104,6 +113,8 @@ function actionDescriptif($twig, $db){
     $langage = new Langage($db);
     $leLangage = $langage->select($_GET['id']);
     $element = $_GET['element'];
+    $redirect = "";
+    $num="";
     // si la personne a envoyé sa réponse
     if (isset($_POST['btAjouter'])){
           if (empty($_POST["choix"])) {
@@ -115,13 +126,14 @@ function actionDescriptif($twig, $db){
                 //insertion de la nouvelle maitrise
                 $insertMaitrise = new Maitrise($db);
                 $exec = $insertMaitrise->insert($_SESSION['login'], $_GET['id']);
+                $redirect = "lancodex";
             }else{
                 $reponse=0;
             }
         }
     }
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesDesc'=>$res,'langage'=>$leLangage,'reponse'=>$reponse));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesDesc'=>$res,'langage'=>$leLangage,'reponse'=>$reponse, 'redirect'=>$redirect,'num'=>$num));
 }
 
 
