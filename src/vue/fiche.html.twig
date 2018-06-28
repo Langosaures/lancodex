@@ -1,28 +1,36 @@
-{% extends "base.html.twig" %}{% block title %} {{ parent() }}- Un langage {% endblock %} {% block contenu %} {%if session.login is not defined %}
-<div class="conteneur-central">
-    <form class="form-signin" action="index.php?page=connexion" method="post" enctype="application/x-www-form-urlencoded">
-        <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
-        <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
-        <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
-        <button class="btn btn-lg  btn-block" type="submit" name="btConnecter">Se connecter</button>
-        <a class="go-back-arrow" href="index.php?page=inscrire" id="inscription-link">S'inscrire <i class="glyphicon glyphicon-circle-arrow-right"></i></a>
-    </form>
-</div>{% else %} {% for e in leLangage %}
-<h2>Element n°{{ e.id }} de votre lancodex</h2>
-<a class="arrow-back" href="index.php?page=lancodex"><i class="glyphicon glyphicon-circle-arrow-left"> </i></a>
-<table id="description">
-    <tr>
-        <th class="header-description">Logo : </th>
-        <th class="header-description">Nom :</th>
-        <th class="header-description">Description :</th>
-    </tr>
-    <tr>
-
-            <td class="case-description locked"><a href="index.php?page=logo&id={{e.id}}&element=1"><img src="images/{{e.logo}}" alt="{{e.logo}}"></a></td>
-            <td class="case-description" id="libelle-desc"><a href="index.php?page=nom&id={{e.id}}&element=2">{{e.libelle}}</a></td>
-            <td class="case-description"><a href="index.php?page=descriptif&id={{e.id}}&element=3">{{e.description | convert_encoding('UTF-8', 'ISO-8859-1')}}</a></td>
-
-    </tr>
-</table>
-{% endfor %}
-{% endif %} {% endblock %}
+{% extends "base.html.twig" %}{% block title %} {{ parent() }}- Un langage {% endblock %} {% block contenu %} 
+{% if session.login is not defined %}
+    <div class="conteneur-central">
+        <form class="form-signin" action="index.php?page=connexion" method="post" enctype="application/x-www-form-urlencoded">
+            <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+            <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
+            <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
+            <button class="btn btn-lg  btn-block" type="submit" name="btConnecter">Se connecter</button>
+            <a class="go-back-arrow" href="index.php?page=inscrire" id="inscription-link">S'inscrire <i class="glyphicon glyphicon-circle-arrow-right"></i></a>
+        </form>
+    </div>
+{% else %}
+    {% for e in leLangage %}
+        <h2>Element n°{{ e.id }} de votre lancodex</h2>
+        <a class="arrow-back" href="index.php?page=lancodex"><i class="glyphicon glyphicon-circle-arrow-left"> </i></a>
+        <table id="description">
+            <tr>
+                <th class="header-description">Logo : </th>
+                <th class="header-description">Nom :</th>
+                <th class="header-description">Description :</th>
+            </tr>
+            <tr>
+            {% set myVar = e.id %}
+            {% if myVar == idTechno %}    
+                <td class="case-description "><a href="index.php?page=logo&id={{e.id}}&element=1"><img src="images/{{e.logo}}" alt="{{e.logo}}"></a></td>
+                <td class="case-description " id="libelle-desc"><a href="index.php?page=nom&id={{e.id}}&element=2">{{e.libelle}}</a></td>
+                <td class="case-description "><a href="index.php?page=descriptif&id={{e.id}}&element=3">{{e.description | convert_encoding('UTF-8', 'ISO-8859-1')}}</a></td>
+            {% else %}
+                <td class="case-description locked"><a href="index.php?page=logo&id={{e.id}}&element=1"><img src="images/{{e.logo}}" alt="{{e.logo}}"></a></td>
+                <td class="case-description blur" id="libelle-desc"><a href="index.php?page=nom&id={{e.id}}&element=2">{{e.libelle}}</a></td>
+                <td class="case-description blur"><a href="index.php?page=descriptif&id={{e.id}}&element=3">{{e.description | convert_encoding('UTF-8', 'ISO-8859-1')}}</a></td>
+            {% endif %}
+        </table>
+    {% endfor %}
+{% endif %}
+{% endblock %}
