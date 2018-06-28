@@ -60,6 +60,7 @@ function actionLogo($twig, $db){
                 $num = "&element=2";
             }else{
                 $reponse=0;
+                $redirect = "fiche";
             }
         }
     }
@@ -93,6 +94,7 @@ function actionNom($twig, $db){
                 $num ="&element=3";
             }else{
                 $reponse=0;
+                $redirect = "fiche"
             }
         }
     }
@@ -129,6 +131,7 @@ function actionDescriptif($twig, $db){
                 $redirect = "lancodex";
             }else{
                 $reponse=0;
+                $redirect = "fiche"
             }
         }
     }
