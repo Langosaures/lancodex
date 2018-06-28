@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  jeu. 28 juin 2018 à 00:24
--- Version du serveur :  10.1.31-MariaDB
--- Version de PHP :  7.2.3
+-- Host: 127.0.0.1
+-- Generation Time: Jun 28, 2018 at 04:05 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `bdgestionprojets`
+-- Database: `bdgestionprojets`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cours`
+-- Table structure for table `cours`
 --
 
 CREATE TABLE `cours` (
@@ -35,7 +35,7 @@ CREATE TABLE `cours` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `cours`
+-- Dumping data for table `cours`
 --
 
 INSERT INTO `cours` (`id`, `libelle`, `contenu`) VALUES
@@ -43,12 +43,14 @@ INSERT INTO `cours` (`id`, `libelle`, `contenu`) VALUES
 (2, 'Le PHP', '<p>\r\nLe PHP est un langage informatique utilisé sur l\'internet. Le terme PHP est un acronyme récursif de \"PHP: Hypertext Preprocessor\".</p>\r\n<p>\r\nCe langage est principalement utilisé pour produire un site web dynamique. Il est courant que ce langage soit associé à une base de données, tel que MySQL.</p>\r\n<p>Exécuté du côté serveur (l\'endroit où est hébergé le site) il n\'y a pas besoin aux visiteurs d\'avoir des logiciels ou plugins particulier. Néanmoins, les webmasters qui souhaitent développer un site en PHP doivent s\'assurer que l\'hébergeur prend en compte ce langage.</p>\r\n\r\n<p>Lorsqu\'une page PHP est exécuté par le serveur, alors celui-ci renvois généralement au client (aux visiteurs du site) une page web qui peut contenir du HTML, XHTML, CSS, JavaScript ...</p>\r\n\r\n<p>A noter que le <b>logo</b>, comme celui de nombreux projets Open Source, PHP possède une mascotte. Il s\'agit de l\'éléPHPant, dessiné en 1998 par El Roubio.\r\n</p>\r\n<p>\r\nCelui-ci s\'est inspiré de la ressemblance des lettres PHP avec un éléphant et du fait que deux des lettres du langage soient déjà présentes dans ce mot, ce qui a permis de créer le néologisme éléPHPant. du php est représenté par un éléphant</p>'),
 (3, 'Le CSS', '<p>\r\nLes CSS, Cascading Style Sheets (feuilles de styles en cascade), servent à mettre en forme des documents web, type page HTML ou XML. Par l\'intermédiaire de propriétés d\'apparence (couleurs, bordures, polices, etc.) et de placement (largeur, hauteur, côte à côte, dessus-dessous, etc.), le rendu d\'une page web peut être intégralement modifié sans aucun code supplémentaire dans la page web. Les feuilles de styles ont d\'ailleurs pour objectif principal de dissocier le contenu de la page de son apparence visuelle. Ceci permet :</p>\r\n<ul>\r\n   <li> de ne pas répéter dans chaque page le même code de mise en forme</li>\r\n    <li>d\'utiliser des styles génériques, avec des noms explicites (par exemple un style encadré pour du texte ou des images)</li>\r\n    <li>de pouvoir changer l\'apparence d\'un site web complet en ne modifiant qu\'un seul fichier</li>\r\n    <li>de faciliter la lecture du code de la page</li>\r\n</ul>\r\n<p>\r\nLa puissance et de l\'intérêt des CSS peut être démontrée en modifiant radicalement l\'apparence d\'une page, sans changer son code HTML d\'un iota... Bref les CSS permettent de gagner en productivité et en maintenabilité des sites web, tout en offrant des possibilités graphiques incontestables. Lorsqu\'on se lance dans la conception de pages web, il faut apprendre les CSS !</p>\r\n\r\n<p>Ce livre reprend les spécifications du W3C dont les CSS font partie, mais en les rendant intelligibles aux non-initiés et en les agrémentant de conseils, d\'exemples, d\'astuces... Il nécessite comme pré-requis la connaissance des bases du langage HTML, éventuellement XHTML pour lequel les CSS peuvent devenir absolument nécessaires.</p>\r\n <p>A noter que le <b>logo</b> du CSS est très similaire à celui du HTML, à la seule exception qu\'il est de couleur bleu et est annoté d\'un 3 et non du 5.</p>'),
 (4, 'Le Java', '<p>Java est un langage de programmation créé par Sun Microsystems (entreprise aujourd\'hui rachetée par Oracle Corporation) et lancé le 23 mai 1995.</p>\r\n\r\n<p>Java est un langage dédié à la programmation orientée objet et l\'un des deux langages de programmation les plus employés. À l\'heure actuelle, il est très utilisé pour des programmes de moyenne envergure, dans la gestion des entreprises notamment. Il ressemble au C++ mais leurs différences font qu\'ils ne sont généralement pas utilisés pour les mêmes choses. Par exemple :</p>\r\n<ul>\r\n    <li>Java s\'exécute dans une machine virtuelle : il est donc plus lent que C++ mais dispose d\'un ramasse-miettes qui simplifie la gestion de la mémoire ;</li>\r\n    <li>il est plus facile de faire des interfaces graphiques, du multi-threading, du réseau, etc. en Java qu\'en C++ ;</li>\r\n    <li>Java est plus simple d\'accès que le C++ (moins de symboles, moins de notions proches du C) mais le C++ permet des constructions plus puissantes et personnalisées ;</li>\r\n    <li>grâce à sa machine virtuelle, Java est multi-plateforme.</li>\r\n</ul>\r\n<p>Le nom « Java » n\'est pas un acronyme, il a été choisi lors d\'un brainstorming en remplacement du nom d\'origine « Oak », à cause d\'un conflit avec une marque existante, parce que le café (« java » en argot américain) est la boisson favorite de nombreux programmeurs. Le <b>logo</b> choisi par Sun est d\'ailleurs une tasse de café fumant.</p>'),
-(5, 'L\'Angular', '<p>\r\nAngularJS est né en 2009 dans les locaux de Google. Deux développeurs du nom de Brad Green et Shyam Seshadri commençaient sérieusement à déprimer devant leur projet appelé \"Google Feedback\". Une immense frustration les envahissait au fur et à mesure que leur code grandissait. Celui-ci comptait approximativement 17 000 lignes à ce moment-là. Autant de lignes de pur front-end  qui sont intestables et donc difficilement maintenables.</p>\r\n\r\n<p>C\'est à ce moment-là que Shyam Seshadri proposa de redévelopper entièrement la solution avec un framework fait maison. Au bout de trois semaines, l\'application ne comptait plus que 1 500 lignes de codes, parfaitement testées.</p>\r\n\r\n<p>À compter de ce jour, les autres développeurs de l\'équipe ont décidé de prendre en main ce framework et de travailler avec au quotidien. Une histoire est née, l\'histoire d\'un framework que l\'on nommera AngularJS.</p>\r\n<p>Le <b>logo</b> de l\'Angular est un hexagon rouge avec un \'A\' gravé dessus.</p>');
+(5, 'L\'Angular', '<p>\r\nAngularJS est né en 2009 dans les locaux de Google. Deux développeurs du nom de Brad Green et Shyam Seshadri commençaient sérieusement à déprimer devant leur projet appelé \"Google Feedback\". Une immense frustration les envahissait au fur et à mesure que leur code grandissait. Celui-ci comptait approximativement 17 000 lignes à ce moment-là. Autant de lignes de pur front-end  qui sont intestables et donc difficilement maintenables.</p>\r\n\r\n<p>C\'est à ce moment-là que Shyam Seshadri proposa de redévelopper entièrement la solution avec un framework fait maison. Au bout de trois semaines, l\'application ne comptait plus que 1 500 lignes de codes, parfaitement testées.</p>\r\n\r\n<p>À compter de ce jour, les autres développeurs de l\'équipe ont décidé de prendre en main ce framework et de travailler avec au quotidien. Une histoire est née, l\'histoire d\'un framework que l\'on nommera AngularJS.</p>\r\n<p>Le <b>logo</b> de l\'Angular est un hexagon rouge avec un \'A\' gravé dessus.</p>'),
+(6, 'Le Python', '<p>\r\nLe Langage Python est apparu en 1991 grâce à Guido van Rossum. Son nom n\'est pas tiré de celui du serpent mais bien de la fameuse troupe de comiques \"Monty Python\" ! Par ailleurs, son créateur a fondé l\'organisation <b>Python Software Foundation</b> en 2001, une association a but non lucratif leur rendant hommage.\r\n</p>\r\n\r\n<p>\r\nCe langage interprété s\'avère être puissant, il peut être utilisé pour effectuer de petits scripts tout comme de gros projets.\r\n</p>\r\n\r\n<p>\r\nNous pouvons communiquer avec notre système grâce à celui-ci, mais aussi créer des interfaces graphiques, faire passer des informations dans un réseau... Les possibilités sont infinies !\r\n</p>\r\n\r\n<P>Certains sites très connus ont été conçus à l\'aide de ce langage tel que :</p>\r\n<ul>\r\n<li>Pinterest</li>\r\n<li>Reddit</li>\r\n<li>Spotify</li>\r\n<li>Youtube</li>\r\n<li>Dropbox</li>\r\n</ul>\r\n<p>\r\nSon <b>logo</b> représente deux python tel le Yin et le Yang mais avec des teins jaune et bleu.\r\n</p>'),
+(7, 'Le SQL', '<p>\r\nLe Structured Query Language, plus connu sous le diminutif \'SQL est né en 1974 avant d\'être normalisé en 1986. Il a été développé par IBM, plus particulièrement par Donald D et Raymond Boyce.\r\n</p>\r\n\r\n<p>\r\nCe langage permet d\'envoyer des requêtes pour communiquer avec une base de données.\r\n</p>\r\n<p>\r\nOn peut donc se servir de langages tiers tel que le PHP pour traiter le résultat( des requêtes\r\n</p>\r\n<p>\r\n Son <b>logo</b> est représenté par un cylindre de couleur bleu/vert.\r\n</p>');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `indice`
+-- Table structure for table `indice`
 --
 
 CREATE TABLE `indice` (
@@ -58,7 +60,7 @@ CREATE TABLE `indice` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `indice`
+-- Dumping data for table `indice`
 --
 
 INSERT INTO `indice` (`id`, `libelle`, `idTechno`) VALUES
@@ -94,7 +96,7 @@ INSERT INTO `indice` (`id`, `libelle`, `idTechno`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `maitrise`
+-- Table structure for table `maitrise`
 --
 
 CREATE TABLE `maitrise` (
@@ -103,11 +105,14 @@ CREATE TABLE `maitrise` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `maitrise`
+-- Dumping data for table `maitrise`
 --
 
 INSERT INTO `maitrise` (`idUtilisateur`, `idTechnologie`) VALUES
 ('admin@simpleduc.org', 1),
+('admin@simpleduc.org', 4),
+('admin@simpleduc.org', 7),
+('admin@simpleduc.org', 8),
 ('azeo@zk', 8),
 ('blup@bl.fr', 8),
 ('matteo@test.com', 8),
@@ -118,7 +123,7 @@ INSERT INTO `maitrise` (`idUtilisateur`, `idTechnologie`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `question`
+-- Table structure for table `question`
 --
 
 CREATE TABLE `question` (
@@ -129,7 +134,7 @@ CREATE TABLE `question` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `question`
+-- Dumping data for table `question`
 --
 
 INSERT INTO `question` (`id`, `libelle`, `idTechnologie`, `idBonneReponse`) VALUES
@@ -158,7 +163,7 @@ INSERT INTO `question` (`id`, `libelle`, `idTechnologie`, `idBonneReponse`) VALU
 -- --------------------------------------------------------
 
 --
--- Structure de la table `reponse`
+-- Table structure for table `reponse`
 --
 
 CREATE TABLE `reponse` (
@@ -169,7 +174,7 @@ CREATE TABLE `reponse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `reponse`
+-- Dumping data for table `reponse`
 --
 
 INSERT INTO `reponse` (`id`, `libelle`, `idQuestion`, `Type`) VALUES
@@ -240,7 +245,7 @@ INSERT INTO `reponse` (`id`, `libelle`, `idQuestion`, `Type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `technologie`
+-- Table structure for table `technologie`
 --
 
 CREATE TABLE `technologie` (
@@ -251,7 +256,7 @@ CREATE TABLE `technologie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `technologie`
+-- Dumping data for table `technologie`
 --
 
 INSERT INTO `technologie` (`id`, `libelle`, `description`, `logo`) VALUES
@@ -267,7 +272,7 @@ INSERT INTO `technologie` (`id`, `libelle`, `description`, `logo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateur`
+-- Table structure for table `utilisateur`
 --
 
 CREATE TABLE `utilisateur` (
@@ -278,7 +283,7 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `utilisateur`
+-- Dumping data for table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`email`, `mdp`, `nom`, `prenom`) VALUES
@@ -291,31 +296,31 @@ INSERT INTO `utilisateur` (`email`, `mdp`, `nom`, `prenom`) VALUES
 ('test@test.fr', '$2y$10$7Rqiz/3Zm2fr636NRoVDG.o2HGvW16Nq03gLuTqFEzQtWuLbWe3bO', '1', '1');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `cours`
+-- Indexes for table `cours`
 --
 ALTER TABLE `cours`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `indice`
+-- Indexes for table `indice`
 --
 ALTER TABLE `indice`
   ADD PRIMARY KEY (`id`),
   ADD KEY `techno` (`idTechno`);
 
 --
--- Index pour la table `maitrise`
+-- Indexes for table `maitrise`
 --
 ALTER TABLE `maitrise`
   ADD PRIMARY KEY (`idUtilisateur`,`idTechnologie`) USING BTREE,
   ADD KEY `maitrise2` (`idTechnologie`);
 
 --
--- Index pour la table `question`
+-- Indexes for table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`id`),
@@ -323,84 +328,84 @@ ALTER TABLE `question`
   ADD KEY `idBonneReponse` (`idBonneReponse`);
 
 --
--- Index pour la table `reponse`
+-- Indexes for table `reponse`
 --
 ALTER TABLE `reponse`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idQuestion` (`idQuestion`);
 
 --
--- Index pour la table `technologie`
+-- Indexes for table `technologie`
 --
 ALTER TABLE `technologie`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `utilisateur`
+-- Indexes for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`email`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `cours`
+-- AUTO_INCREMENT for table `cours`
 --
 ALTER TABLE `cours`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT pour la table `indice`
+-- AUTO_INCREMENT for table `indice`
 --
 ALTER TABLE `indice`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT pour la table `question`
+-- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT pour la table `reponse`
+-- AUTO_INCREMENT for table `reponse`
 --
 ALTER TABLE `reponse`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
--- AUTO_INCREMENT pour la table `technologie`
+-- AUTO_INCREMENT for table `technologie`
 --
 ALTER TABLE `technologie`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `indice`
+-- Constraints for table `indice`
 --
 ALTER TABLE `indice`
   ADD CONSTRAINT `techno` FOREIGN KEY (`idTechno`) REFERENCES `technologie` (`id`);
 
 --
--- Contraintes pour la table `maitrise`
+-- Constraints for table `maitrise`
 --
 ALTER TABLE `maitrise`
   ADD CONSTRAINT `maitrise2` FOREIGN KEY (`idTechnologie`) REFERENCES `technologie` (`id`),
   ADD CONSTRAINT `maitriser` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`email`);
 
 --
--- Contraintes pour la table `question`
+-- Constraints for table `question`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`idTechnologie`) REFERENCES `technologie` (`id`),
   ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`idBonneReponse`) REFERENCES `reponse` (`id`);
 
 --
--- Contraintes pour la table `reponse`
+-- Constraints for table `reponse`
 --
 ALTER TABLE `reponse`
   ADD CONSTRAINT `reponse_ibfk_1` FOREIGN KEY (`idQuestion`) REFERENCES `question` (`id`);
