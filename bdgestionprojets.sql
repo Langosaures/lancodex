@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2018 at 04:05 PM
+-- Generation Time: Jun 28, 2018 at 09:29 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -109,16 +109,18 @@ CREATE TABLE `maitrise` (
 --
 
 INSERT INTO `maitrise` (`idUtilisateur`, `idTechnologie`) VALUES
-('admin@simpleduc.org', 1),
-('admin@simpleduc.org', 4),
-('admin@simpleduc.org', 7),
 ('admin@simpleduc.org', 8),
 ('azeo@zk', 8),
 ('blup@bl.fr', 8),
+('fin@fin.fin', 1),
+('fin@fin.fin', 2),
+('fin@fin.fin', 8),
 ('matteo@test.com', 8),
 ('test2@simpleduc.org', 8),
 ('test@simpleduc.org', 8),
-('test@test.fr', 8);
+('test@test.fr', 8),
+('ultimate@ben10.user', 4),
+('ultimate@ben10.user', 8);
 
 -- --------------------------------------------------------
 
@@ -183,8 +185,8 @@ INSERT INTO `reponse` (`id`, `libelle`, `idQuestion`, `Type`) VALUES
 (3, 'Holistic Technical Method Library', 1, 'nom'),
 (4, 'Hyper Text Making Language', 1, 'nom'),
 (5, 'A mettre en forme des pages web', 3, 'description'),
-(6, 'A ajouter du style à une page web', 3, 'description'),
-(7, 'A créer des jeux vidéos', 3, 'description'),
+(6, 'A ajouter du style a une page web', 3, 'description'),
+(7, 'A creer des jeux videos', 3, 'description'),
 (8, 'A executer du code Python', 3, 'description'),
 (9, 'html.png', 2, 'logo'),
 (10, 'Computer Style Sheets', 4, 'nom'),
@@ -193,52 +195,52 @@ INSERT INTO `reponse` (`id`, `libelle`, `idQuestion`, `Type`) VALUES
 (13, 'Create Simple Samples', 4, 'nom'),
 (14, 'css.png', 5, 'logo'),
 (15, 'A ajouter du style aux pages web', 6, 'description'),
-(16, 'A insérer du contenu dans une page internet', 6, 'description'),
+(16, 'A inserer du contenu dans une page internet', 6, 'description'),
 (17, 'A réaliser des pages dynamiques', 6, 'description'),
-(18, 'A faire de jolis dégradés de couleurs', 6, 'description'),
-(19, 'En argot américain, il signifie café', 7, 'nom'),
-(20, 'Une île en Indonésie', 7, 'nom'),
+(18, 'A faire de jolis degrades de couleurs', 6, 'description'),
+(19, 'En argot americain, il signifie cafe', 7, 'nom'),
+(20, 'Une ile en Indonesie', 7, 'nom'),
 (21, 'Une danse', 7, 'nom'),
 (22, 'Un ordinateur', 7, 'nom'),
 (23, 'java.png', 8, 'logo'),
-(24, 'C\'est un langage de programmation utilisé pour créer des pages web', 9, 'description'),
-(25, 'C\'est un langage de programmation orienté objet', 9, 'description'),
-(26, 'Il est utilisé pour programmer des cafetières', 9, 'description'),
-(27, 'Il est utilisé pour faire le design des pages Web', 9, 'description'),
+(24, 'C\'est un langage de programmation utilise pour creer des pages web', 9, 'description'),
+(25, 'C\'est un langage de programmation oriente objet', 9, 'description'),
+(26, 'Il est utilise pour programmer des cafetieres', 9, 'description'),
+(27, 'Il est utilise pour faire le design des pages Web', 9, 'description'),
 (28, 'Page Helper Process', 10, 'nom'),
 (29, 'Personnal HyperText Processor', 10, 'nom'),
 (30, 'PHP:HyperText Preprocessor', 10, 'nom'),
 (31, 'Private Home Page', 10, 'nom'),
 (32, 'php.png', 11, 'logo'),
-(33, 'A traiter des informations côté client', 12, 'description'),
+(33, 'A traiter des informations cote client', 12, 'description'),
 (34, 'A faire fonctionner Facebook', 12, 'description'),
 (35, 'A ajouter du style sur une page web', 12, 'description'),
-(36, 'Généralement il sert à traiter des informations de formulaires ou de base de données côté serveur', 12, 'description'),
+(36, 'Generalement il sert a traiter des informations de formulaires ou de base de donnees cote serveur', 12, 'description'),
 (49, 'Engulaire', 13, 'nom'),
 (50, 'Angular', 13, 'nom'),
 (51, 'Angulair', 13, 'nom'),
 (52, 'Langular', 13, 'nom'),
 (53, 'angularjs.png', 14, 'logo'),
-(54, 'Créer facilement des applications web avec une navigation côté client', 15, 'description'),
-(55, 'Générer des applications lourdes', 15, 'description'),
+(54, 'Creer facilement des applications web avec une navigation cote client', 15, 'description'),
+(55, 'Generer des applications lourdes', 15, 'description'),
 (56, 'Traiter des informations venant de la base de données', 15, 'description'),
-(57, 'Ne pas avoir à utiliser la logique MVC', 15, 'description'),
+(57, 'Ne pas avoir a utiliser la logique MVC', 15, 'description'),
 (58, 'Simple Quite Language', 16, 'nom'),
 (59, 'Structured Question Language', 16, 'nom'),
 (60, 'Strong Question Language', 16, 'nom'),
 (61, 'Structured Query Language', 16, 'nom'),
 (62, 'sql.png', 17, 'logo'),
 (63, 'A faciliter la navigation que les applications web', 18, 'description'),
-(64, 'A voler les données des utilisateurs de ce site', 18, 'description'),
-(65, 'Exploiter des bases de données', 18, 'description'),
+(64, 'A voler les donnees des utilisateurs de ce site', 18, 'description'),
+(65, 'Exploiter des bases de donnees', 18, 'description'),
 (66, 'Créer des pages web', 18, 'description'),
 (67, 'La constellation du dragon', 19, 'nom'),
 (68, 'Un monstrueux serpent', 19, 'nom'),
-(69, 'Un langage de programmation interprété', 19, 'nom'),
+(69, 'Un langage de programmation interprete', 19, 'nom'),
 (70, 'L\'idole des serpentard', 19, 'nom'),
 (71, 'python.png', 20, 'logo'),
 (72, 'Apprendre à parler le fourchelangue', 21, 'description'),
-(73, 'Communiquer avec des bases de données', 21, 'description'),
+(73, 'Communiquer avec des bases de donnees', 21, 'description'),
 (74, 'Créer des applications web', 21, 'description'),
 (75, 'Créer des programmes simples ou des progiciels', 21, 'description');
 
@@ -290,10 +292,12 @@ INSERT INTO `utilisateur` (`email`, `mdp`, `nom`, `prenom`) VALUES
 ('admin@simpleduc.org', '$2y$10$q8.AZxrDgmrHediCOUPvpOyDJJuOP70041CHa8NYq9QlhTsYiYXjG', 'admin', 'admin'),
 ('azeo@zk', '$2y$10$NXrIKhL0uLijcTgokuJPEez.I40egYICS5BoCdkVmIaIMkNldAWCq', 'z', 'z'),
 ('blup@bl.fr', '$2y$10$kWw6PpFVa1gH./sd1oFTP.YCqOMmmuq8aSpl0XIlux5M3EUnHb5SG', 'a', 'a'),
+('fin@fin.fin', '$2y$10$3VWHjhJ7wH4n9k37qPncpu10YEzpTozjmRT3EpFtxmDIylYvvXGvK', 'fin', 'fin'),
 ('matteo@test.com', '$2y$10$3VPo3qFj4h/uIXq3Bpycx.qqp4K.xaHwjzvDLnkWzWY4yqoeibEkC', 'test', 'Matteo'),
 ('test2@simpleduc.org', '$2y$10$Ytl65biwd9NeWk2aZgT9J.Z5cR2QviejK3e3S0kRse/4hZncmamTu', 'test2', 'test2'),
 ('test@simpleduc.org', '$2y$10$sV5EpXbZ6Bcqm36OlCVWleFWgUO2F6O5rVm2dtrtGrEwtqauK99wy', 'test', 'test'),
-('test@test.fr', '$2y$10$7Rqiz/3Zm2fr636NRoVDG.o2HGvW16Nq03gLuTqFEzQtWuLbWe3bO', '1', '1');
+('test@test.fr', '$2y$10$7Rqiz/3Zm2fr636NRoVDG.o2HGvW16Nq03gLuTqFEzQtWuLbWe3bO', '1', '1'),
+('ultimate@ben10.user', '$2y$10$jv9t7vbeoloF2TCDpht7g.y/FfuXDuoE8qQNJDWYknHacUbzbs162', 'Gerafe', '21');
 
 --
 -- Indexes for dumped tables
