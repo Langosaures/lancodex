@@ -6,20 +6,31 @@ class QR{
     private $selectRepLogo;
     private $selectRepNom;
     private $selectRepDesc;
+    private $selectDescTechno;
     
     // création de nos requêtes
     public function __construct($db){
         $this->db = $db;  
         // requête permettant de sélectionner une question avec sa bonne réponse et son logo
-        $this->select = $db->prepare("select q.id, q.libelle, t.logo as logo, t.libelle as techno, r.libelle as reponse from question q, technologie t, reponse r  where q.idTechnologie = t.id and q.idBonneReponse = r.id and q.id = :id");
+        $this->select = $db->prepare("select q.id, q.libelle, t.logo as logo, description as ds,t.libelle as techno, r.libelle as reponse from question q, technologie t, reponse r  where q.idTechnologie = t.id and q.idBonneReponse = r.id and t.id = :id");
         //requête permettant de récupérer les  réponses du logo
-        $this->selectRepLogo = $db->prepare("select r.libelle as reponse, t.logo as logo, r.type as type from reponse r, technologie t, question q where q.id = r.idQuestion and q.idTechnologie = t.id and idTechnologie = :id and type='logo'");
+        $this->selectRepLogo = $db->prepare("select q.idTechnologie as tech, r.libelle as reponse, t.logo as logo, r.type as type from reponse r, technologie t, question q where q.id = r.idQuestion and q.idTechnologie = t.id and idTechnologie = :id and type='logo'");
         //requête permettant de récupérer les  réponses du nom
         $this->selectRepNom = $db->prepare("select r.libelle as reponse, t.logo as logo, r.type as type from reponse r, technologie t, question q where q.id = r.idQuestion and q.idTechnologie = t.id and idTechnologie = :id and type='nom'");
         //requête permettant de récupérer les  réponses du logo
         $this->selectRepDesc = $db->prepare("select r.libelle as reponse, t.logo as logo, r.type as type from reponse r, technologie t, question q where q.id = r.idQuestion and q.idTechnologie = t.id and idTechnologie = :id and type='description'");
+        $this->selectDescTechno = $db->prepare("select distinct r.libelle from reponse as r inner join question on r.id=question.idBonneReponse and question.idTechnologie=:id");
         }
-
+    
+    public function selectDescTechno($id){
+        $this->selectDescTechno->execute(array(':id'=>$id));
+        if ($this->selectDescTechno->errorCode()!=0){
+             print_r($this->selectDescTechno->errorInfo());  
+        }
+        return $this->selectDescTechno->fetchAll();
+    }
+    
+    
     // fonction permettant d'exécuter la requête select
     public function select($id){
         $this->select->execute(array(':id'=>$id));

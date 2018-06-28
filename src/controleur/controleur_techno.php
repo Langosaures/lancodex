@@ -17,6 +17,7 @@ function actionTechno($twig, $db){
             $listeMaitrise = $Maitrise->select($_SESSION['login']);
             //Récupération de toutes les techno non maitrisées
             $listeNonMaitrise = $Maitrise->selectNonMaitrise($_SESSION['login']);
+
             // Envoie du résultat sur la page twig
             echo $twig->render('lancodex.html.twig', array('listeNonMaitrise'=>$listeNonMaitrise, 'listeIndices'=>$listeInd, 'listeMaitrise'=>$listeMaitrise));
         }else{
