@@ -11,9 +11,9 @@ class QR{
     public function __construct($db){
         $this->db = $db;  
         // requête permettant de sélectionner une question avec sa bonne réponse et son logo
-        $this->select = $db->prepare("select q.id, q.libelle, t.logo as logo, t.libelle as techno, r.libelle as reponse from question q, technologie t, reponse r  where q.idTechnologie = t.id and q.idBonneReponse = r.id and t.id = :id");
+        $this->select = $db->prepare("select q.id, q.libelle, t.logo as logo, t.libelle as techno, r.libelle as reponse from question q, technologie t, reponse r  where q.idTechnologie = t.id and q.idBonneReponse = r.id and q.id = :id");
         //requête permettant de récupérer les  réponses du logo
-        $this->selectRepLogo = $db->prepare("select q.idTechnologie as tech, r.libelle as reponse, t.logo as logo, r.type as type from reponse r, technologie t, question q where q.id = r.idQuestion and q.idTechnologie = t.id and idTechnologie = :id and type='logo'");
+        $this->selectRepLogo = $db->prepare("select r.libelle as reponse, t.logo as logo, r.type as type from reponse r, technologie t, question q where q.id = r.idQuestion and q.idTechnologie = t.id and idTechnologie = :id and type='logo'");
         //requête permettant de récupérer les  réponses du nom
         $this->selectRepNom = $db->prepare("select r.libelle as reponse, t.logo as logo, r.type as type from reponse r, technologie t, question q where q.id = r.idQuestion and q.idTechnologie = t.id and idTechnologie = :id and type='nom'");
         //requête permettant de récupérer les  réponses du logo

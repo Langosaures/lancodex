@@ -1,6 +1,6 @@
 <?php
-function actionLangage($twig, $db){ // Vérif Ok
-    $langage  = new Langage($db);
+function actionLangage($twig, $db){
+    $langage = new Langage($db);
     $leLangage = $langage->select($_GET['id']);
     // Création d'une instance de la classe dino
     $Dino = new Dino($db);
@@ -11,29 +11,22 @@ function actionLangage($twig, $db){ // Vérif Ok
     $QR = new QR($db);
     // Récupération de la question avec sa bonne réponse et son logo
     $listeQR = $QR->select($_GET['id']);
-    //Création objet Maitrise et recup des maitrises de l'utilisateur
-    $Maitrise = new Maitrise($db);
-    $listeMaitrise = $Maitrise->select($_SESSION['login']);
-
-    // Envoie du résultat sur la page twig
-    echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'listeMaitrise'=>$listeMaitrise));
-}
-
-// méthode pour obtenir le tableau avec résultats
-function resultat($db) {
-    // Création d'une instance de la classe QR
-    $QR = new QR($db);
-    // Récupération de la question avec sa bonne réponse et son logo
-    $listeQR = $QR->select($_GET['id']);
 
     // On complete le tableau résultat
     $resultat[0] = $listeQR[2]; // logo
     $resultat[1] = $listeQR[3]; // nom
     $resultat[2] = $listeQR[4]; // descriptif
 
-    return $resultat;
+    //Création objet Maitrise et recup des maitrises de l'utilisateur
+    $Maitrise = new Maitrise($db);
+    $listeMaitrise = $Maitrise->select($_SESSION['login']);
+    // Envoie du résultat sur la page twig
+    echo $twig->render('fiche.html.twig', array('leLangage'=>$leLangage,'listeIndices'=>$listeInd, 'listeQR'=>$listeQR, 'listeMaitrise'=>$listeMaitrise));
 }
 
+
+//tableau stockant le résultat
+$resultat = array();
 
 //méthodes du quizz
 
@@ -46,20 +39,18 @@ function actionLogo($twig, $db){
     // les réponses
     $res = new QR($db);
     $res = $res->selectRepLogo($_GET['id']);
-    $resultat =resultat($db);
     $bool;
     $reponse;
     $element = $_GET['element'];
     // si la personne a envoyé sa réponse
-    if (isset($_POST['submit-quizz'])){
+    if (isset($_POST['formulaireLogo'])){
         //Récupération du logo choisi
-        $element = $_GET['choix'];  
+        $element = $_GET['Logo'];
         //Vérifier que le logo est bon
         //Si bon, bool = true et reponse = logo
         if ($element == $resultat[0]) {
             $bool = true;
-            $reponse = $element;
-            }
+            $reponse = $element;}
         }
         //Sinon bool = false et reponse = logo
         else {
@@ -69,9 +60,8 @@ function actionLogo($twig, $db){
         //Ajout des valeurs dans le tableau
         $tabBool[0] = $bool;
         $tabReponse[0] = $reponse;
-
     // Envoie du résultat sur la page twig
-    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesLogo'=>$res, 'id'=>$_GET['id']));
+    echo $twig->render('quizz.html.twig', array('element'=>$element, 'ReponsesLogo'=>$res));
 }
 
 
@@ -80,14 +70,14 @@ function actionNom($twig, $db){
     // les réponses
     $res = new QR($db);
     $res = $res->selectRepNom($_GET['id']);
-    $resultat =resultat($db);
+
     $bool;
     $reponse;
     $element = $_GET['element'];
     // si la personne a envoyé sa réponse
-    if (isset($_POST['submit-quizz'])){
+    if (isset($_POST['formulaireNom'])){
         //Récupération du Nom choisi
-        $element = $_GET['choix'];
+        $element = $_GET['formNom'];
         //Vérifier que le Nom est bon
         //Si bon, bool = true et reponse = Nom
         if ($element == $resultat[1]) {
@@ -102,7 +92,6 @@ function actionNom($twig, $db){
         //Ajout des valeurs dans le tableau
         $tabBool[1] = $bool;
         $tabReponse[1] = $reponse;
-
     }
 
     // Envoie du résultat sur la page twig
@@ -117,14 +106,14 @@ function actionDescriptif($twig, $db){
     // les réponses
     $res = new QR($db);
     $res = $res->selectRepDesc($_GET['id']);
-    $resultat =resultat($db);
+
     $bool;
     $reponse;
     $element = $_GET['element'];
     // si la personne a envoyé sa réponse
     if (isset($_POST['formulaireDescriptif'])){
         //Récupération du Descriptif choisi
-        $element = $_GET['choix'];
+        $element = $_GET['formDesc'];
         //Vérifier que le Descriptif est bon
         //Si bon, bool = true et reponse = Descriptif
         if ($element == $resultat[2]) {

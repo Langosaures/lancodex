@@ -17,11 +17,25 @@
         <th class="header-description">Description :</th>
     </tr>
     <tr>
+    {% set indI = 0 %}
+    {% for r in listeMaitrise %}
+        <p> indice{{indI}}</p>
 
+
+        {% if indI == 0 %}
+            {% if r.id == e.id %}
+            <td class="case-description "><a href="index.php?page=logo&id={{e.id}}&element=1"><img src="images/{{e.logo}}" alt="{{e.logo}}"></a></td>
+            <td class="case-description " id="libelle-desc"><a href="index.php?page=nom&id={{e.id}}&element=2">{{e.libelle}}</a></td>
+            <td class="case-description "><a href="index.php?page=descriptif&id={{e.id}}&element=3">{{e.description | convert_encoding('UTF-8', 'ISO-8859-1')}}</a></td>
+            {{ indI + 1 }}
+            {% elseif r.id != e.id %}
             <td class="case-description locked"><a href="index.php?page=logo&id={{e.id}}&element=1"><img src="images/{{e.logo}}" alt="{{e.logo}}"></a></td>
-            <td class="case-description" id="libelle-desc"><a href="index.php?page=nom&id={{e.id}}&element=2">{{e.libelle}}</a></td>
-            <td class="case-description"><a href="index.php?page=descriptif&id={{e.id}}&element=3">{{e.description | convert_encoding('UTF-8', 'ISO-8859-1')}}</a></td>
+            <td class="case-description blur" id="libelle-desc"><a href="index.php?page=nom&id={{e.id}}&element=2">{{e.libelle}}</a></td>
+            <td class="case-description blur"><a href="index.php?page=descriptif&id={{e.id}}&element=3">{{e.description | convert_encoding('UTF-8', 'ISO-8859-1')}}</a></td>
+            {% endif %}
 
+        {% endif %}
+    {% endfor %}
     </tr>
 </table>
 {% endfor %}
