@@ -9,7 +9,6 @@ require_once '../src/controleur/_controleurs.php';
 require_once '../src/modele/_classes.php';
 
 
-
 $loader = new Twig_Loader_Filesystem('../src/vue/');
 $twig = new Twig_Environment($loader, array());
 $twig->addGlobal('session', $_SESSION);

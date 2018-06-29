@@ -43,8 +43,8 @@
         </div>
     </div>
     {% endblock%}
-    <div class="footer">
-        <a class="logout-link footer-component" href="index.php?page=deconnexion">Se déconnecter <span class="glyphicon glyphicon-log-out"></span></a></div> {% endif %} {% endblock %}
+    <div class="footer logout-link footer-component">
+        <a class="logout-link footer-component" href="index.php?page=deconnexion"> | Se déconnecter <span class="glyphicon glyphicon-log-out"></span></a>Connecté en tant que {{session.login}} | <br></div>{% endif %} {% endblock %}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

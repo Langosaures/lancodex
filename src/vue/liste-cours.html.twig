@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %} {% block title %} {{ parent() }} Cours {% endblock %} {% block contenu %}
 <div class="conteneurCoursListe">
-    <h2>La liste des cours disponibles</h2>
+    <h2>Introduction sur :</h2>
     <ul class="listeCours">
         {%for e in listeCours%}
         <a href="index.php?page=leCours&id={{e.id}}">
@@ -11,3 +11,4 @@
 </div>
 <a class="arrow-back" href="index.php?page=choixtuto"><i class="glyphicon glyphicon-circle-arrow-left"> </i>
 {%endblock%} {% block dino %} {% endblock %}
+{%block connect%}{%endblock%}
