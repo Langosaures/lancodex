@@ -24,7 +24,7 @@
         <!-- pour les noms -->
         {% elseif element == 2 %}
         <form action="index.php?page=nom&id={{l.id}}&element={{4}}" method="post" enctype="application/x-www-form-urlencoded">
-            <h2>Quel est le bon nom ?</h2>
+            <h2>Quel est la bonne description du nom ?</h2>
             <ul class="quizz-list"> {% for e in ReponsesNom %}
                 <li>
                     <input type="radio" name="choix" value="{{e.reponse}}" required>{{e.reponse| convert_encoding('UTF-8', 'ISO-8859-1')}}

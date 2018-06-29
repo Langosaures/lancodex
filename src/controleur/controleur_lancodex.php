@@ -94,7 +94,7 @@ function actionNom($twig, $db){
                 $num ="&element=3";
             }else{
                 $reponse=0;
-                $redirect = "fiche"
+                $redirect = "fiche";
             }
         }
     }
@@ -131,7 +131,7 @@ function actionDescriptif($twig, $db){
                 $redirect = "lancodex";
             }else{
                 $reponse=0;
-                $redirect = "fiche"
+                $redirect = "fiche";
             }
         }
     }
