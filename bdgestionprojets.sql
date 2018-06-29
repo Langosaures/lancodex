@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2018 at 09:29 PM
+-- Generation Time: Jun 28, 2018 at 09:38 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -241,8 +241,8 @@ INSERT INTO `reponse` (`id`, `libelle`, `idQuestion`, `Type`) VALUES
 (71, 'python.png', 20, 'logo'),
 (72, 'Apprendre à parler le fourchelangue', 21, 'description'),
 (73, 'Communiquer avec des bases de donnees', 21, 'description'),
-(74, 'Créer des applications web', 21, 'description'),
-(75, 'Créer des programmes simples ou des progiciels', 21, 'description');
+(74, 'Creer des applications web', 21, 'description'),
+(75, 'Creer des programmes simples ou des progiciels', 21, 'description');
 
 -- --------------------------------------------------------
 
